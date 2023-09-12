@@ -1,0 +1,26 @@
+import { Link } from "react-router-dom"
+
+const Hero = () => {
+	return (
+		<div className="">
+			<div className="p-16 bg-hero-pattern bg-no-repeat bg-cover h-[40rem] ">
+				<h1 className="pt-16 font-bold text-6xl text-white border-spacing-2">Unlock your potential <br />and take charge of your future</h1>
+				<p className="pt-8 text-white">Whether you are a mentor looking to inspire the next generation or a mentee seeking guidance, Me2Mentor is your path to success. <br />Join our community today and embark on a journey of growth, learning, and empowerment.</p>
+				<div className="pt-8 flex gap-2 font-bold">
+					<button className="bg-blue-900 hover:bg-yellow-400 rounded p-3 text-white transition">
+						<Link to="/mentor-register">
+							Become a Mentor
+						</Link>
+					</button>
+					<button className="bg-yellow-400 rounded p-3 text-blue-900 transition">
+						<Link to="/mentee-register">
+							Sign up as a Mentee
+						</Link>
+					</button>
+				</div>
+			</div>
+		</div>
+	)
+}
+
+export default Hero

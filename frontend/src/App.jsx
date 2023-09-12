@@ -1,18 +1,16 @@
 import './App.css'
-//import NavBar from './components/NavBar'
 import { Routes, Route } from 'react-router-dom'
-import Home from './pages/Home'
-import About from './pages/About'
-import NavBar from './components/NavBar'
+import MenteeRegister from './pages/MenteeRegister'
+import MentorRegister from './pages/MentorRegister'
+
 function App() {
 
   return (
     <div>
-      <NavBar />
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/about' element={<About />} />
 
+      <Routes>
+        <Route path='/mentee-register' element={<MenteeRegister />} />
+        <Route path='/mentor-register' element={<MentorRegister />} />
       </Routes>
 
     </div>

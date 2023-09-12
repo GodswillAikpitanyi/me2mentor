@@ -4,7 +4,7 @@ const MenteeRegister = () => {
 		<div className="w-full bg-gray-200 h-[120vh] flex flex-col justify-center">
 			<div className="mx-auto w-1/2 bg-white text-black p-5 rounded-md ">
 				<div className="text-center pb-6">
-					<h1 className="font-bold text-3xl">Me<span className="text-blue-600 font-bold text-4xl">2</span>Mentor</h1>
+					<h1 className="font-bold text-3xl">Me<span className="text-yellow-400  font-bold text-4xl">2</span>Mentor</h1>
 					<h4 className="font-semibold text-lg">Register as a Mentee</h4>
 				</div>
 				<form action="" className="grid grid-cols-2 gap-4">

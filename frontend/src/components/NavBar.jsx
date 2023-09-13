@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 
 const NavBar = () => {
 	return (
-		<div className='w-full bg-blue-900 px-5 '>
+		<div className='w-full bg-blue-900 px-5'>
 			<nav className=" text-white font-bold p-4 flex justify-between items-center">
 				<div>
 					<h1 className="font-bold text-3xl">Me<span className="text-yellow-400 font-bold text-4xl">2</span>Mentor</h1>

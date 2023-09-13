@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 const Hero = () => {
 	return (
 		<div className="">
-			<div className="p-16 bg-hero-pattern bg-no-repeat bg-cover h-[40rem] ">
+			<div className="py-16 px-10 bg-hero-pattern bg-no-repeat bg-cover h-[40rem] ">
 				<h1 className="pt-16 font-bold text-6xl text-white border-spacing-2">Unlock your potential <br />and take charge of your future</h1>
 				<p className="pt-8 text-white">Whether you are a mentor looking to inspire the next generation or a mentee seeking guidance, Me2Mentor is your path to success. <br />Join our community today and embark on a journey of growth, learning, and empowerment.</p>
 				<div className="pt-8 flex gap-2 font-bold">

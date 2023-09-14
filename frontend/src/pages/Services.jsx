@@ -4,7 +4,7 @@ const Services = () => {
   return (
     <>
       <NavBar />
-      <div>Services</div>
+      <div className="pt-28">Services</div>
     </>
   )
 }

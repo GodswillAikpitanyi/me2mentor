@@ -1,5 +1,4 @@
 import { FaHouseChimney } from "react-icons/fa6"
-import { IoIosArrowForward } from "react-icons/io"
 import { Link } from "react-router-dom"
 
 const Mentors = () => {
@@ -74,44 +73,52 @@ const Mentors = () => {
 			</div>
 
 
-			<div className="md:flex justify-between bg-slate-300 px-10 py-10">
-				<div>
+			<div className="bg-slate-300 px-10 py-10">
+				<div className="text-center">
+
 					<p className="py-5 text-4xl font-bold">Join <span className="font-bold md:text-4xl">
-						Me<span className="text-yellow-400 font-bold md:text-5xl">2</span>Mentor
-					</span> in four easy steps</p>
-					<div className="flex items-center gap-4">
-						<IoIosArrowForward className='text-yellow-600 font-bold' />
-						<p className="py-3"> <span className="font-semibold text-xl">Create a profile: </span>Sign up with your LinkedIn or email account.</p>
+						Me<span className="text-yellow-400 font-bold md:text-4xl">2</span>Mentor
+					</span> and connect with your future success</p>
+
+					<p className="py-2 text-base font-semibold">Are you ready to take your life and career to the next level? At Me2Mentor we believe that mentorship is the key to unlocking your full potential. Our platform is designed to connect you with experienced mentors who will guide you on your journey to success.</p>
+
+					<p className="py-2 text-base font-semibold">Join the thousands of users who have already taken the leap towards success by following these simple steps</p>
+
+					<div className="md:grid grid-cols-4 items-center gap-4">
+						<div className="flex flex-col  items-center  py-5">
+							<div className="bg-blue-500 text-white rounded-full flex items-center justify-center w-10 h-10">1</div>
+							<p className="font-bold text-lg">Create an Account</p>
+							<p className="text-lg text-center "> Sign up with your google or email account.</p>
+						</div>
+
+						<div className="flex flex-col items-center py-5">
+							<div className="bg-blue-500 text-white rounded-full flex items-center justify-center w-10 h-10">2</div>
+							<p className="font-bold text-lg">Set your goals</p>
+							<p className="text-lg text-center">Tell us about your mentoring goals and preferences</p>
+						</div>
+
+						<div className="flex flex-col items-center  py-5">
+							<div className="bg-blue-500 text-white rounded-full flex items-center justify-center w-10 h-10">3</div>
+							<p className="font-bold text-lg">Match and connect</p>
+							<p className="text-lg text-center ">Our algorithm will find the perfect mentorship match for you.</p>
+						</div>
+
+						<div className="flex flex-col items-center  py-5">
+							<div className="bg-blue-500 text-white rounded-full flex items-center justify-center w-10 h-10">4</div>
+							<p className="font-bold text-lg">Start your journey</p>
+							<p className="text-lg text-center">Begin your mentorship adventure and watch your potential unfold.</p>
+						</div>
+
 					</div>
 
-					<div className="flex items-center gap-4">
-						<IoIosArrowForward className='text-yellow-600 font-bold' />
-						<p className="py-3"> <span className="font-semibold text-xl">Set your goals: </span>Tell us about your mentoring goals and preferences.</p>
-					</div>
-
-					<div className="flex items-center gap-4">
-						<IoIosArrowForward className='text-yellow-600 font-bold' />
-						<p className="py-3"> <span className="font-semibold text-xl">Match and connect: </span> Our algorithm will find the perfect mentorship match for you.</p>
-					</div>
-
-					<div className="flex items-center gap-4">
-						<IoIosArrowForward className='text-yellow-600 font-bold' />
-						<p className="py-3"> <span className="font-semibold text-xl">Start your journey: </span> Begin your mentorship adventure and watch your potential unfold.</p>
-					</div>
-
-
-					<div className="text-center bg-blue-900 hover:bg-yellow-400 hover:text-blue-800 font-semibold w-1/2 mx-auto rounded p-3 text-white transition-all">
+					<div className="text-center bg-blue-900 hover:bg-yellow-400 hover:text-blue-800 font-semibold mt-3 md:w-1/4 mx-auto rounded p-3 text-white transition-all">
 						<button> <Link to='/mentee-register'>
 							Join Me2Mentor Today!
 						</Link> </button>
 					</div>
 				</div>
 
-				<div>
-					Some images
 
-
-				</div>
 			</div>
 
 

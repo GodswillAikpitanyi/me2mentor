@@ -3,6 +3,7 @@ import { IoMdMail } from 'react-icons/io'
 import { FaHouseChimney } from 'react-icons/fa6'
 import { IoIosArrowForward } from 'react-icons/io'
 import { Link } from 'react-router-dom'
+import { navLinks } from '../utils/data'
 
 const Footer = () => {
 	return (
@@ -28,6 +29,24 @@ const Footer = () => {
 
 				</div>
 			</div>
+
+			<div className='lg:flex flex-col items-center' >
+				<div className="lg:relative">
+					<p className="text-3xl font-bold inline-block uppercase pb-1">Links</p>
+					<div className="lg:absolute bottom-0 left-0 lg:w-1/2 md:w-[50px]  w-1/5 border-b-4 border-yellow-400 "></div>
+				</div>
+				<ul className='space-y-5 pt-5'>
+					{navLinks.map((link) => {
+						const { id, url, name } = link
+						return (
+							<li key={id} className="flex gap-4 items-center hover:text-yellow-300">
+								<IoIosArrowForward className='text-yellow-400' />
+								<Link to={url}>
+									{name}
+								</Link>
+							</li>
+						)
+					})}
 
 			<div className='flex flex-col items-center' >
 				<div className="relative">
@@ -69,6 +88,11 @@ const Footer = () => {
 
 			</div>
 
+
+			<div className='lg:flex flex-col items-center' >
+				<div className="lg:relative">
+					<p className="text-3xl font-bold inline-block uppercase pb-1">Supports</p>
+					<div className="lg:absolute bottom-0 left-0 lg:w-1/2 md:w-1/5 w-1/4 border-b-4 border-yellow-400"></div>
 			<div className='flex flex-col items-center' >
 				<div className="relative">
 					<p className="text-3xl font-bold inline-block uppercase pb-1">Supports</p>

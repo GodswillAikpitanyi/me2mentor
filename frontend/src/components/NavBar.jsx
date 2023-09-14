@@ -69,34 +69,19 @@ const NavBar = () => {
 			{/* Mobile Sidebar */}
 			<div
 				className={`${mobileSidebarOpen ? "block" : "hidden"
-					} lg:hidden fixed top-0 left-0 w-56 bg-yellow-300 text-black font-semibold z-10 h-full overflow-y-auto transition-all ease-in-out duration-300`}
+					} lg:hidden fixed top-0 pt-10 pl-10 left-0 w-48 shadow-lg bg-yellow-300 text-black font-semibold z-10 h-full overflow-y-auto transition-all ease-in-out duration-300`}
 			>
-				<ul className="p-4">
-					<li className="hover:text-yellow-300">
-						<Link to="/" onClick={toggleMobileSidebar}>
-							Home
-						</Link>
-					</li>
-					<li className="hover:text-yellow-300">
-						<Link to="/about" onClick={toggleMobileSidebar}>
-							About
-						</Link>
-					</li>
-					<li className="hover:text-yellow-300">
-						<Link to="/services" onClick={toggleMobileSidebar}>
-							Services
-						</Link>
-					</li>
-					<li className="hover:text-yellow-300">
-						<Link to="/blog" onClick={toggleMobileSidebar}>
-							Blog
-						</Link>
-					</li>
-					<li className="hover:text-yellow-300">
-						<Link to="/contact" onClick={toggleMobileSidebar}>
-							Contact
-						</Link>
-					</li>
+				<ul className="p-4 space-y-5">
+					{navLinks.map((link) => {
+						const { id, url, name } = link
+						return (
+							<li key={id} className="hover:text-yellow-300">
+								<Link to={url} onClick={toggleMobileSidebar}>
+									{name}
+								</Link>
+							</li>
+						)
+					})}
 				</ul>
 			</div>
 

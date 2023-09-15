@@ -31,37 +31,37 @@ export const topMentors = [
 		id: 1,
 		name: 'Ikpa Precious',
 		country: 'Canada',
-		field: 'Web Development',
-		category: 'Tech',
-		url: './public/ment1.jpg',
+		field: 'Banking & Finance',
+		category: 'Finance Specialist',
+		url: './ment6.jpg',
 		experience: '10 years'
 	},
 	{
 		id: 2,
-		name: 'Grazie Graziella',
+		name: 'Graziella',
 		country: 'Nigeria',
-		field: 'Life Coach',
+		field: 'Psychologist',
 		category: 'Counselling',
-		url: './public/ment2.jpg',
-		experience: '10 years'
+		url: './ment2.jpg',
+		experience: '8 years'
 	},
 	{
 		id: 3,
-		name: 'Ikpa Precious',
+		name: 'Adeniyi Adejumo',
 		country: 'Canada',
-		field: 'Web Development',
+		field: 'Web development',
 		category: 'Tech',
-		url: './public/ment1.jpg',
-		experience: '10 years'
+		url: '/ment5.jpg',
+		experience: '9 years'
 	},
 	{
 		id: 4,
-		name: 'Ikpa Precious',
-		country: 'Canada',
-		field: 'Web Development',
-		category: 'Tech',
-		url: './public/ment1.jpg',
-		experience: '10 years'
+		name: 'Godswill Aikpitanyi',
+		country: 'Nigeria',
+		field: 'Farmer',
+		category: 'Agriculture',
+		url: './ment3.jpg',
+		experience: '12 years'
 	},
 	{
 		id: 5,
@@ -69,16 +69,16 @@ export const topMentors = [
 		country: 'Canada',
 		field: 'Web Development',
 		category: 'Tech',
-		url: './public/ment1.jpg',
+		url: './ment4.jpg',
 		experience: '10 years'
 	},
 	{
 		id: 6,
-		name: 'Ikpa Precious',
-		country: 'Canada',
-		field: 'Web Development',
-		category: 'Tech',
-		url: './public/ment1.jpg',
+		name: 'Gregory Jones',
+		country: 'Germany',
+		field: 'Medicine & Surgery',
+		category: 'Healthcare',
+		url: './ment5.jpg',
 		experience: '10years'
 	},
 ]

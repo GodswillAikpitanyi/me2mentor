@@ -58,13 +58,9 @@ const Footer = () => {
 					<div className="lg:absolute bottom-0 left-0 lg:w-1/2 md:w-1/5 w-1/4 border-b-4 border-yellow-400"></div>
 				</div>
 				<ul className='space-y-5 pt-5 '>
+
 					<li className='hover:text-yellow-300'>
-						<Link to='/contact'>
-							Contact
-						</Link>
-					</li>
-					<li className='hover:text-yellow-300'>
-						<Link to='/'>
+						<Link to='/mentee-register'>
 							Connect to a Mentor
 						</Link>
 					</li>
@@ -74,6 +70,7 @@ const Footer = () => {
 							Become a Mentor
 						</Link>
 					</li>
+
 					<li className='hover:text-yellow-300'>
 						<Link to='/'>
 							Support Sysytem

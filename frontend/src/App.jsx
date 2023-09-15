@@ -7,6 +7,7 @@ import About from './pages/About'
 import Blog from './pages/Blog'
 import Contact from './pages/Contact'
 import Services from './pages/Services'
+import AllMentors from './pages/AllMentors'
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route path='/services' element={<Services />} />
         <Route path='/mentee-register' element={<MenteeRegister />} />
         <Route path='/mentor-register' element={<MentorRegister />} />
+        <Route path='/all-mentors' element={<AllMentors />} />
       </Routes>
 
     </div>

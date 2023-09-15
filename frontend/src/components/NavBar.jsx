@@ -109,6 +109,8 @@ const NavBar = () => {
 				</div>
 
 				<div className="flex gap-4 items-center">
+
+
 					<div>
 						<input
 							type="text"
@@ -119,8 +121,10 @@ const NavBar = () => {
 						/>
 					</div>
 					<div>
-						<button className="bg-yellow-400 text-blue-900 p-2 rounded-md transition-all hover:bg-blue-500 hover:text-yellow-400">
-							<Link to="/mentor-register">Become a Mentor</Link>
+						<button className=" border border-3 py-2 px-5 rounded-md hover:text-black hover:bg-white transition">
+							<Link to='/login'>
+								Login
+							</Link>
 						</button>
 					</div>
 				</div>

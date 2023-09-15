@@ -19,7 +19,7 @@ const Mentors = () => {
 			</div>
 
 			<div className="md:grid md:grid-cols-2 lg:grid-cols-3 md:w-[70%] lg:w-[80%] gap-5 md:mt-0 pt-5 ">
-				{topMentors.map((mentors) => {
+				{topMentors.slice(0, 6).map((mentors) => {
 					const { id, name, field, url, category, experience, country } = mentors
 					return (
 						<div key={id} className='rounded-md shadow-md mb-5 md:mb-0'>

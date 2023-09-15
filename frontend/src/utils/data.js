@@ -29,7 +29,7 @@ export const navLinks = [
 export const topMentors = [
 	{
 		id: 1,
-		name: 'Ikpa Precious',
+		name: 'Ikpa Imade',
 		country: 'Canada',
 		field: 'Banking & Finance',
 		category: 'Finance Specialist',
@@ -57,7 +57,7 @@ export const topMentors = [
 	{
 		id: 4,
 		name: 'Godswill Aikpitanyi',
-		country: 'Nigeria',
+		country: 'Kenya',
 		field: 'Farmer',
 		category: 'Agriculture',
 		url: './ment3.jpg',
@@ -74,17 +74,17 @@ export const topMentors = [
 	},
 	{
 		id: 6,
-		name: 'Gregory Jones',
+		name: 'Georgette Stone',
 		country: 'Germany',
 		field: 'Medicine & Surgery',
 		category: 'Healthcare',
-		url: './ment5.jpg',
+		url: './ment1.jpg',
 		experience: '10years'
 	},
 	{
 		id: 7,
 		name: 'Ikpa Precious',
-		country: 'Canada',
+		country: 'Rwanda',
 		field: 'Web Development',
 		category: 'Tech',
 		url: './public/ment1.jpg',

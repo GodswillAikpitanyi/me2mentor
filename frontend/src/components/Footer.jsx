@@ -11,7 +11,7 @@ const Footer = () => {
 			<div>
 				<h1 className="font-bold text-3xl">Me<span className="text-yellow-400 font-bold text-4xl">2</span>Mentor</h1>
 
-				<p className='text-gray-300 pt-5'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Error totam deserunt vero similique perspiciatis minima, enim officia eos nemo aspernatur cumque quo expedita voluptatibus aliquid, exercitationem adipisci commodi voluptas temporibus.</p>
+				<p className='text-gray-300 pt-5'>Embark on a journey of self-discovery, empowerment, and success. Whether you're a mentor looking to make a difference or a mentee eager to learn, our platform is your pathway to personal and professional growth.</p>
 
 				<div className='pt-5 space-y-5'>
 					<div className='flex gap-4 items-center'>
@@ -20,11 +20,11 @@ const Footer = () => {
 					</div>
 					<div className='flex gap-4 items-center'>
 						<IoMdMail className='text-yellow-400' />
-						<p>info@top-finance.com</p>
+						<p>info@me2mentor.com</p>
 					</div>
 					<div className='flex gap-4 items-center'>
 						<FaHouseChimney className='text-yellow-400' />
-						<p>380 St Kilda Road, Melbourne VIC 3004, Australia</p>
+						<p>380 St Kilda Road, 3004, VGC, Lagos</p>
 					</div>
 
 				</div>
@@ -72,14 +72,13 @@ const Footer = () => {
 
 						<li className='hover:text-yellow-300'>
 							<Link to='/'>
-								Support Sysytem
+								Support System
 							</Link>
 						</li>
 					</ul>
 				</div>
 			</div>
 		</div>
-
 	)
 }
 

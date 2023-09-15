@@ -1,13 +1,13 @@
 
 const MentorRegister = () => {
 	return (
-		<div className="w-full bg-gray-200 h-[120vh] flex flex-col justify-center">
-			<div className="mx-auto w-1/2 bg-white text-black p-5 rounded-md ">
+		<div className="w-full bg-gray-200 h-full flex flex-col justify-center py-10">
+			<div className="mx-auto md:w-1/2 bg-white text-black p-5 rounded-md ">
 				<div className="text-center pb-6">
 					<h1 className="font-bold text-3xl">Me<span className="text-yellow-400  font-bold text-4xl">2</span>Mentor</h1>
 					<h4 className="font-semibold text-lg">Register as a Mentor</h4>
 				</div>
-				<form action="" className="grid grid-cols-2 gap-4">
+				<form className="md:grid grid-cols-2 gap-4">
 					<div>
 						<label htmlFor="firstName" className="block text-lg font-semibold"> First Name </label>
 						<input type="text" placeholder="Enter your First Name" className="border outline-0 p-2 rounded-md w-full bg-[#f5f8fa] focus:border-2 focus:shadow-[0-0-4px-1px-rgba(0,208,228,0.3)]" />
@@ -69,10 +69,10 @@ const MentorRegister = () => {
 
 					<div>
 						<label htmlFor="picture" className="block text-lg font-semibold"> Profile Picture </label>
-						<input type="file" placeholder="Comfirm password" className="border outline-0 p-2 rounded-md w-full  bg-[#f5f8fa] focus:border-2 focus:shadow-[0-0-4px-1px-rgba(0,208,228,0.3)]" />
+						<input type="file" placeholder="Comfirm password" className="border outline-0 p-[5px] rounded-md w-full  bg-[#f5f8fa] focus:border-2 focus:shadow-[0-0-4px-1px-rgba(0,208,228,0.3)]" />
 					</div>
 
-					<div className="text-center w-full col-span-2">
+					<div className="text-center w-full col-span-2 pt-3">
 						<button className="text-semibold bg-blue-600 text-white p-3 rounded-md hover:bg-blue-300 w-1/2 transition">Submit</button>
 					</div>
 				</form>

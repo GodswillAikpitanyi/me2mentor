@@ -3,9 +3,9 @@ import NavBar from "../components/NavBar"
 const About = () => {
   return (
     <>
-      <NavBar/>
-      <div>
-        About
+      <NavBar />
+      <div className="pt-20">
+        About Page
 
       </div>
     </>

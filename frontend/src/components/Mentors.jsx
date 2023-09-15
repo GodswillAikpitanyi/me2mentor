@@ -1,128 +1,42 @@
-import { FaHouseChimney } from "react-icons/fa6"
-import { Link } from "react-router-dom"
+import { Link } from 'react-router-dom'
+import { topMentors } from '../utils/data'
 
 const Mentors = () => {
 	return (
-		<div >
-			<div className="py-10 px-10">
-				<div className="text-center">
-					<h2 className="md:text-4xl text-2xl text-blue-900 font-bold pb-3">Welcome to <span className="font-bold md:text-4xl">
-						Me<span className="text-yellow-400 font-bold md:text-5xl">2</span>Mentor
-					</span></h2>
-					<p className="md:text-lg text-sm text-gray-600 font-semibold">A community that speedens your journey to growth, learning and empowerment.</p>
+		<div className="px-5 py-16 md:flex items-center gap-5">
+
+			<div className=' md:w-[30%] lg:w-[20%] border-2 border-blue-900 py-8 px-5 '>
+				<div className="lg:relative">
+					<p className="text-3xl font-bold inline-block uppercase pb-1 text-blue-900">Top Mentors</p>
+					<div className="lg:absolute bottom-0 left-0 lg:w-1/2 md:w-1/5 w-1/4 border-b-4 border-yellow-400"></div>
 				</div>
+				<p className='py-5 text-gray-500'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptas veniam illum aut at iste. Porro quasi obcaecati rerum nulla, magnam mollitia!</p>
 
-				<div className="md:grid grid-cols-3 py-5 gap-6">
-					<div className="flex gap-2">
-						<div className="w-[100px] h-[50px] border border-yellow-400 flex justify-center items-center rounded-full" >
-							<FaHouseChimney />
-						</div>
-						<div>
-							<h3 className="text-blue-900 font-semibold text-xl">Personalized Mentorship Matching</h3>
-							<p className="py-3 text-base text-gray-500 font-light">Finding the right mentor or mentee can be challenging. Me2Mentor takes the guesswork out of the equation.</p>
-						</div>
-					</div>
-
-					<div className="flex gap-2">
-						<div className="w-[100px] h-[50px] border border-yellow-400 flex justify-center items-center rounded-full" >
-							<FaHouseChimney />
-						</div>
-						<div>
-							<h3 className="text-blue-900 font-semibold text-xl">Diverse Network of Mentors</h3>
-							<p className="py-3 text-base text-gray-500 font-light">Our extensive mentor network spans various industries, professions, and backgrounds. </p>
-						</div>
-					</div>
-
-					<div className="flex gap-2">
-						<div className="w-[100px] h-[50px] border border-yellow-400 flex justify-center items-center rounded-full" >
-							<FaHouseChimney />
-						</div>
-						<div>
-							<h3 className="text-blue-900 font-semibold text-xl"> Skill Enhancement and Career Advancement:</h3>
-							<p className="py-3 text-base text-gray-500 font-light">With Me2Mentor, you will have access to mentors who can help you hone your skills, set and achieve career goals, and unlock new opportunities.</p>
-						</div>
-					</div>
-					<div className="flex gap-2">
-						<div className="w-[100px] h-[50px] border border-yellow-400 flex justify-center items-center rounded-full" >
-							<FaHouseChimney />
-						</div>
-						<div>
-							<h3 className="text-blue-900 font-semibold text-xl">Personalized Mentorship Matching</h3>
-							<p className="py-3 text-base text-gray-500 font-light">Finding the right mentor or mentee can be challenging. Me2Mentor takes the guesswork out of the equation.</p>
-						</div>
-					</div>
-					<div className="flex gap-2">
-						<div className="w-[100px] h-[50px] border border-yellow-400 flex justify-center items-center rounded-full" >
-							<FaHouseChimney />
-						</div>
-						<div>
-							<h3 className="text-blue-900 font-semibold text-xl">Supportive Community</h3>
-							<p className="py-3 text-base text-gray-500 font-light">Join a vibrant and supportive community of like-minded individuals. Connect with mentees and mentors who share your passion and commitment to growth.</p>
-						</div>
-					</div>
-					<div className="flex gap-2">
-						<div className="w-[100px] h-[50px] border border-yellow-400 flex justify-center items-center rounded-full" >
-							<FaHouseChimney />
-						</div>
-						<div>
-							<h3 className="text-blue-900 font-semibold text-xl"> Knowledge Sharing and Growth</h3>
-							<p className="py-3 text-base text-gray-500 font-light">For mentors, Me2Mentor provides a platform to give back to the community and share their wealth of experience</p>
-						</div>
-					</div>
-				</div>
-			</div>
-
-
-			<div className="bg-slate-300 px-10 py-10">
-				<div className="text-center">
-
-					<p className="py-5 text-4xl font-bold">Join <span className="font-bold md:text-4xl">
-						Me<span className="text-yellow-400 font-bold md:text-4xl">2</span>Mentor
-					</span> and connect with your future success</p>
-
-					<p className="py-2 text-base font-semibold">Are you ready to take your life and career to the next level? At Me2Mentor we believe that mentorship is the key to unlocking your full potential. Our platform is designed to connect you with experienced mentors who will guide you on your journey to success.</p>
-
-					<p className="py-2 text-base font-semibold">Join the thousands of users who have already taken the leap towards success by following these simple steps</p>
-
-					<div className="md:grid grid-cols-4 items-center gap-4">
-						<div className="flex flex-col  items-center  py-5">
-							<div className="bg-blue-500 text-white rounded-full flex items-center justify-center w-10 h-10">1</div>
-							<p className="font-bold text-lg">Create an Account</p>
-							<p className="text-lg text-center "> Sign up with your google or email account.</p>
-						</div>
-
-						<div className="flex flex-col items-center py-5">
-							<div className="bg-blue-500 text-white rounded-full flex items-center justify-center w-10 h-10">2</div>
-							<p className="font-bold text-lg">Set your goals</p>
-							<p className="text-lg text-center">Tell us about your mentoring goals and preferences</p>
-						</div>
-
-						<div className="flex flex-col items-center  py-5">
-							<div className="bg-blue-500 text-white rounded-full flex items-center justify-center w-10 h-10">3</div>
-							<p className="font-bold text-lg">Match and connect</p>
-							<p className="text-lg text-center ">Our algorithm will find the perfect mentorship match for you.</p>
-						</div>
-
-						<div className="flex flex-col items-center  py-5">
-							<div className="bg-blue-500 text-white rounded-full flex items-center justify-center w-10 h-10">4</div>
-							<p className="font-bold text-lg">Start your journey</p>
-							<p className="text-lg text-center">Begin your mentorship adventure and watch your potential unfold.</p>
-						</div>
-
-					</div>
-
-					<div className="text-center bg-blue-900 hover:bg-yellow-400 hover:text-blue-800 font-semibold mt-3 md:w-1/4 mx-auto rounded p-3 text-white transition-all">
-						<button> <Link to='/mentee-register'>
-							Join Me2Mentor Today!
-						</Link> </button>
-					</div>
-				</div>
-
+				<p className='text-xl font-bold text-blue-900'><Link to='/all-mentors'>
+					See all Mentors <span className='text-yellow-500'>&gt;</span>
+				</Link></p>
 
 			</div>
 
-
-		</div>
+			<div className="md:grid md:grid-cols-2 lg:grid-cols-3 md:w-[70%] lg:w-[80%] gap-5 md:mt-0 pt-5 ">
+				{topMentors.map((mentors) => {
+					const { id, name, field, url, category, experience, country } = mentors
+					return (
+						<div key={id} className='rounded-md shadow-md mb-5 md:mb-0'>
+							<div>
+								<img src={url} alt="top-mentors" className='rounded-t-md w-full' />
+							</div>
+							<div className=' bg-blue-700 text-white p-2 hover:bg-yellow-400 hover:text-black transition rounded-b-md'  >
+								<p className='font-bold text-lg'>{name}, <span className='text-sm font-normal'>{country}</span> </p>
+								<p className='font-semibold '> Expertise: <span className='text-black '>{field}</span> </p>
+								<p className='font-semibold'>Category: <span className='text-black '>{category}</span> </p>
+								<p className='font-semibold '>Experience: <span className='text-black '>{experience}</span> </p>
+							</div>
+						</div>
+					)
+				})}
+			</div>
+		</div >
 	)
 }
 

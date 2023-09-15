@@ -10,7 +10,7 @@ const Mentors = () => {
 					<p className="text-3xl font-bold inline-block uppercase pb-1 text-blue-900">Top Mentors</p>
 					<div className="lg:absolute bottom-0 left-0 lg:w-1/2 md:w-1/5 w-1/4 border-b-4 border-yellow-400"></div>
 				</div>
-				<p className='py-5 text-gray-500'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptas veniam illum aut at iste. Porro quasi obcaecati rerum nulla, magnam mollitia!</p>
+				<p className='py-5 text-gray-500'>Our mission is to connect individuals seeking guidance and mentorship with experienced professionals eager to share their knowledge and insights.</p>
 
 				<p className='text-xl font-bold text-blue-900'><Link to='/all-mentors'>
 					See all Mentors <span className='text-yellow-500'>&gt;</span>

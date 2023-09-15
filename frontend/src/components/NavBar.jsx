@@ -10,8 +10,6 @@ const NavBar = () => {
 	};
 
 
-
-
 	return (
 		<div className="w-full bg-blue-900 fixed shadow-lg">
 			<div className="lg:hidden">
@@ -126,9 +124,11 @@ const NavBar = () => {
 						</button>
 					</div>
 				</div>
-			</nav>
-		</div>
-	);
-};
+				</nav>
+			</div>
+		</nav>
+	</div>
+	)
+}
 
 export default NavBar;

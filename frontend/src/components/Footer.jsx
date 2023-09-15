@@ -47,7 +47,8 @@ const Footer = () => {
 							</li>
 						)
 					})}
-
+				</ul>
+			</div>
 			<div className='flex flex-col items-center' >
 				<div className="relative">
 					<p className="text-3xl font-bold inline-block uppercase pb-1">Links</p>
@@ -118,12 +119,10 @@ const Footer = () => {
 						</Link>
 					</li>
 				</ul>
-
-
 			</div>
-
-
-		</div >
+			</div>
+		</div>
+	</div>
 	)
 }
 

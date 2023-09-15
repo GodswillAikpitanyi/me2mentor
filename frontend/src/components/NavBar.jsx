@@ -84,54 +84,54 @@ const NavBar = () => {
 			</div>
 
 			{/* Desktop Navbar */}
-			<nav className="hidden lg:flex justify-between bg-blue-900 text-white font-bold p-4">
-		<div className='w-full bg-blue-900 px-5'>
-			<nav className=" text-white font-bold p-4 flex justify-between items-center">
-				<div>
-					<h1 className="font-bold text-3xl">
-						Me<span className="text-yellow-400 font-bold text-4xl">2</span>Mentor
-					</h1>
-				</div>
+			<nav className="hidden lg:flex justify-between bg-blue-900 text-white font-bold ">
+				<div className='w-full bg-blue-900 px-5'>
+					<nav className=" text-white font-bold p-4 flex justify-between items-center">
+						<div>
+							<h1 className="font-bold text-3xl">
+								Me<span className="text-yellow-400 font-bold text-4xl">2</span>Mentor
+							</h1>
+						</div>
 
-				<div>
-					<ul className="p-4 lg:flex gap-4 items-center hidden ">
-						{navLinks.map((link) => {
-							const { id, url, name } = link
-							return (
-								<li key={id} className="hover:text-yellow-300">
-									<Link to={url} onClick={toggleMobileSidebar}>
-										{name}
+						<div>
+							<ul className="p-4 lg:flex gap-4 items-center hidden ">
+								{navLinks.map((link) => {
+									const { id, url, name } = link
+									return (
+										<li key={id} className="hover:text-yellow-300">
+											<Link to={url} onClick={toggleMobileSidebar}>
+												{name}
+											</Link>
+										</li>
+									)
+								})}
+							</ul>
+						</div>
+
+						<div className="flex gap-4 items-center">
+
+
+							<div>
+								<input
+									type="text"
+									name=""
+									id=""
+									placeholder="Search"
+									className="border outline-0 p-2 px-3 rounded-md bg-[#f5f8fa] focus:border-2 focus:shadow-[0-0-4px-1px-rgba(0,208,228,0.3)]"
+								/>
+							</div>
+							<div>
+								<button className=" border border-3 py-2 px-5 rounded-md hover:text-black hover:bg-white transition">
+									<Link to='/login'>
+										Login
 									</Link>
-								</li>
-							)
-						})}
-					</ul>
+								</button>
+							</div>
+						</div>
+					</nav>
 				</div>
-
-				<div className="flex gap-4 items-center">
-
-
-					<div>
-						<input
-							type="text"
-							name=""
-							id=""
-							placeholder="Search"
-							className="border outline-0 p-2 px-3 rounded-md bg-[#f5f8fa] focus:border-2 focus:shadow-[0-0-4px-1px-rgba(0,208,228,0.3)]"
-						/>
-					</div>
-					<div>
-						<button className=" border border-3 py-2 px-5 rounded-md hover:text-black hover:bg-white transition">
-							<Link to='/login'>
-								Login
-							</Link>
-						</button>
-					</div>
-				</div>
-				</nav>
-			</div>
-		</nav>
-	</div>
+			</nav>
+		</div>
 	)
 }
 

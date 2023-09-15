@@ -6,19 +6,27 @@ const AllMentors = () => {
 	return (
 		<div>
 			<NavBar />
-			<div className="pt-28 pb-10">
-				<div>
-					<input
-						type="text"
-						name=""
-						id=""
-						placeholder="Search"
-						className="border outline-0 p-2 px-3 rounded-md bg-[#f5f8fa] focus:border-2 focus:shadow-[0-0-4px-1px-rgba(0,208,228,0.3)]"
-					/>
+			<div className="pt-28 pb-10 px-5">
+				<div className="flex justify-between items-center ">
+					<div>
+						<h1 className="text-3xl font-bold">Mentors</h1>
+
+					</div>
+
+					<div>
+						<input
+							type="text"
+							name=""
+							id=""
+							placeholder="Search"
+							className="border outline-0 p-2 px-3 rounded-md bg-[#f5f8fa] focus:border-2 focus:shadow-[0-0-4px-1px-rgba(0,208,228,0.3)]"
+						/>
+					</div>
 				</div>
 
+
 				<div>
-					<div className="md:grid md:grid-cols-2 lg:grid-cols-3 md:w-[70%] lg:w-[80%] mx-auto gap-5 md:mt-0 pt-5 ">
+					<div className="md:grid md:grid-cols-2 lg:grid-cols-4 gap-5 md:mt-0 pt-5 ">
 						{topMentors.map((mentors) => {
 							const { id, name, field, url, category, experience, country } = mentors
 							return (

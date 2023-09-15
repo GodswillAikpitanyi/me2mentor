@@ -81,4 +81,22 @@ export const topMentors = [
 		url: './public/ment1.jpg',
 		experience: '10years'
 	},
+	{
+		id: 7,
+		name: 'Ikpa Precious',
+		country: 'Canada',
+		field: 'Web Development',
+		category: 'Tech',
+		url: './public/ment1.jpg',
+		experience: '10years'
+	},
+	{
+		id: 8,
+		name: 'Ikpa Precious',
+		country: 'Canada',
+		field: 'Web Development',
+		category: 'Tech',
+		url: './public/ment1.jpg',
+		experience: '10years'
+	},
 ]

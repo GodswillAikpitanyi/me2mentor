@@ -7,7 +7,7 @@ import { navLinks } from '../utils/data'
 
 const Footer = () => {
 	return (
-		<div className="px-10 lg:grid grid-cols-3 gap-20 bg-blue-900  text-white py-12">
+		<div className="lg:grid grid-cols-3 gap-20 bg-blue-900  text-white py-12 px-5">
 			<div>
 				<h1 className="font-bold text-3xl">Me<span className="text-yellow-400 font-bold text-4xl">2</span>Mentor</h1>
 

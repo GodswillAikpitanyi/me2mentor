@@ -6,6 +6,8 @@ const ContactUS = () => {
 			<div className="text-center z-20 text-white relative text-4xl font-bold pb-5 "><p>Contact Us</p></div>
 			<div className="relative z-20 md:flex items-center gap-5 ">
 				<div >
+
+
 					<iframe
 						src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d253682.62283124574!2d3.28395955!3d6.548055099999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8b2ae68280c1%3A0xdc9e87a367c3d9cb!2sLagos!5e0!3m2!1sen!2sng!4v1694735036411!5m2!1sen!2sng"
 						allowFullScreen=""

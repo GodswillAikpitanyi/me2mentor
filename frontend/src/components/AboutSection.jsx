@@ -47,8 +47,8 @@ const AboutSection = () => {
 							<FaHouseChimney />
 						</div>
 						<div>
-							<h3 className="text-blue-900 font-semibold text-xl">Personalized Mentorship Matching</h3>
-							<p className="py-3 text-base text-gray-500 font-light">Finding the right mentor or mentee can be challenging. Me2Mentor takes the guesswork out of the equation.</p>
+							<h3 className="text-blue-900 font-semibold text-xl">Recommendation to prospective employers</h3>
+							<p className="py-3 text-base text-gray-500 font-light">Our platform offers you the opportunity to get recommended by mentors to prospective employers as the need arises.</p>
 						</div>
 					</div>
 					<div className="flex gap-2">

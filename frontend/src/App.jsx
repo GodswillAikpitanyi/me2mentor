@@ -7,6 +7,8 @@ import About from './pages/About'
 import Blog from './pages/Blog'
 import Contact from './pages/Contact'
 import Services from './pages/Services'
+import AllMentors from './pages/AllMentors'
+import Login from './pages/Login'
 
 
 function App() {
@@ -16,12 +18,14 @@ function App() {
 
       <Routes>
         <Route path='/' element={<Home />} />
+        <Route path='/login' element={<Login />} />
         <Route path='/about' element={<About />} />
         <Route path='/blog' element={<Blog />} />
         <Route path='/contact' element={<Contact />} />
         <Route path='/services' element={<Services />} />
         <Route path='/mentee-register' element={<MenteeRegister />} />
         <Route path='/mentor-register' element={<MentorRegister />} />
+        <Route path='/all-mentors' element={<AllMentors />} />
       </Routes>
 
     </div>

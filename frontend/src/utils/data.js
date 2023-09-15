@@ -25,3 +25,60 @@ export const navLinks = [
 		name: 'Contact'
 	},
 ]
+
+export const topMentors = [
+	{
+		id: 1,
+		name: 'Ikpa Precious',
+		country: 'Canada',
+		field: 'Web Development',
+		category: 'Tech',
+		url: './public/ment1.jpg',
+		experience: '10 years'
+	},
+	{
+		id: 2,
+		name: 'Grazie Graziella',
+		country: 'Nigeria',
+		field: 'Life Coach',
+		category: 'Counselling',
+		url: './public/ment2.jpg',
+		experience: '10 years'
+	},
+	{
+		id: 3,
+		name: 'Ikpa Precious',
+		country: 'Canada',
+		field: 'Web Development',
+		category: 'Tech',
+		url: './public/ment1.jpg',
+		experience: '10 years'
+	},
+	{
+		id: 4,
+		name: 'Ikpa Precious',
+		country: 'Canada',
+		field: 'Web Development',
+		category: 'Tech',
+		url: './public/ment1.jpg',
+		experience: '10 years'
+	},
+	{
+		id: 5,
+		name: 'Ikpa Precious',
+		country: 'Canada',
+		field: 'Web Development',
+		category: 'Tech',
+		url: './public/ment1.jpg',
+		experience: '10 years'
+	},
+	{
+		id: 6,
+		name: 'Ikpa Precious',
+		country: 'Canada',
+		field: 'Web Development',
+		category: 'Tech',
+		url: './public/ment1.jpg',
+		experience: '10years'
+	},
+]

@@ -10,8 +10,6 @@ const NavBar = () => {
 	};
 
 
-
-
 	return (
 		<div className="w-full bg-blue-900 fixed shadow-lg">
 			<div className="lg:hidden">
@@ -87,6 +85,8 @@ const NavBar = () => {
 
 			{/* Desktop Navbar */}
 			<nav className="hidden lg:flex justify-between bg-blue-900 text-white font-bold p-4">
+		<div className='w-full bg-blue-900 px-5'>
+			<nav className=" text-white font-bold p-4 flex justify-between items-center">
 				<div>
 					<h1 className="font-bold text-3xl">
 						Me<span className="text-yellow-400 font-bold text-4xl">2</span>Mentor
@@ -128,9 +128,11 @@ const NavBar = () => {
 						</button>
 					</div>
 				</div>
-			</nav>
-		</div>
-	);
-};
+				</nav>
+			</div>
+		</nav>
+	</div>
+	)
+}
 
 export default NavBar;

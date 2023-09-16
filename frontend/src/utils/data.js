@@ -33,7 +33,7 @@ export const topMentors = [
 		country: 'Canada',
 		field: 'Banking & Finance',
 		category: 'Finance Specialist',
-		url: './ment6.jpg',
+		url: '/ment6.jpg',
 		experience: '10 years'
 	},
 	{
@@ -42,7 +42,7 @@ export const topMentors = [
 		country: 'Nigeria',
 		field: 'Psychologist',
 		category: 'Counselling',
-		url: './ment2.jpg',
+		url: '/ment2.jpg',
 		experience: '8 years'
 	},
 	{
@@ -60,7 +60,7 @@ export const topMentors = [
 		country: 'Kenya',
 		field: 'Farmer',
 		category: 'Agriculture',
-		url: './ment3.jpg',
+		url: '/ment3.jpg',
 		experience: '12 years'
 	},
 	{
@@ -69,7 +69,7 @@ export const topMentors = [
 		country: 'Canada',
 		field: 'Web Development',
 		category: 'Tech',
-		url: './ment4.jpg',
+		url: '/ment4.jpg',
 		experience: '10 years'
 	},
 	{
@@ -78,7 +78,7 @@ export const topMentors = [
 		country: 'Germany',
 		field: 'Medicine & Surgery',
 		category: 'Healthcare',
-		url: './ment1.jpg',
+		url: '/ment1.jpg',
 		experience: '10years'
 	},
 	{
@@ -87,7 +87,7 @@ export const topMentors = [
 		country: 'Rwanda',
 		field: 'Web Development',
 		category: 'Tech',
-		url: './public/ment1.jpg',
+		url: '/ment1.jpg',
 		experience: '10years'
 	},
 	{
@@ -96,7 +96,7 @@ export const topMentors = [
 		country: 'Canada',
 		field: 'Web Development',
 		category: 'Tech',
-		url: './public/ment1.jpg',
+		url: '/ment1.jpg',
 		experience: '10years'
 	},
 ]

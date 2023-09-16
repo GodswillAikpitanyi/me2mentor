@@ -1,4 +1,4 @@
-import { FaHouseChimney, FaPeopleCarryBox, FaPeopleGroup, FaPeoplePulling, FaPeopleRoof, FaUser, FaUserGraduate, FaUserLock } from "react-icons/fa6"
+import { FaPeopleCarryBox, FaPeopleGroup, FaPeoplePulling, FaPeopleRoof, FaUserGraduate, FaUserLock } from "react-icons/fa6"
 import { Link } from "react-router-dom"
 
 const AboutSection = () => {
@@ -15,7 +15,7 @@ const AboutSection = () => {
 				<div className="md:grid md:grid-cols-2 lg:grid-cols-3 py-5 gap-6">
 					<div className="flex gap-2">
 						<div className="w-[100px] h-[50px] border border-yellow-400 flex justify-center items-center rounded-full" >
-							<FaPeoplePulling />
+							<FaPeoplePulling className='w-10' />
 						</div>
 						<div>
 							<h3 className="text-blue-900 font-semibold text-xl">Personalized Mentorship Matching</h3>
@@ -24,8 +24,8 @@ const AboutSection = () => {
 					</div>
 
 					<div className="flex gap-2">
-						<div className="w-[100px] h-[50px] border border-yellow-400 flex justify-center items-center rounded-full" >
-							<FaPeopleGroup />
+						<div className="w-[80px] h-[50px] border border-yellow-400 flex justify-center items-center rounded-full" >
+							<FaPeopleGroup className='w-10' />
 						</div>
 						<div>
 							<h3 className="text-blue-900 font-semibold text-xl">Diverse Network of Mentors</h3>
@@ -34,8 +34,8 @@ const AboutSection = () => {
 					</div>
 
 					<div className="flex gap-2">
-						<div className="w-[100px] h-[50px] border border-yellow-400 flex justify-center items-center rounded-full" >
-							<FaUserGraduate />
+						<div className="w-[130px] h-[50px] border border-yellow-400 flex justify-center items-center rounded-full" >
+							<FaUserGraduate className='w-10' />
 						</div>
 						<div>
 							<h3 className="text-blue-900 font-semibold text-xl"> Skill Enhancement and Career Advancement:</h3>
@@ -43,8 +43,8 @@ const AboutSection = () => {
 						</div>
 					</div>
 					<div className="flex gap-2">
-						<div className="w-[100px] h-[50px] border border-yellow-400 flex justify-center items-center rounded-full" >
-							<FaUserLock />
+						<div className="w-[110px] h-[50px] border border-yellow-400 flex justify-center items-center rounded-full" >
+							<FaUserLock className='w-10' />
 						</div>
 						<div>
 							<h3 className="text-blue-900 font-semibold text-xl">Unlock Opportunities for Prospective Employment</h3>
@@ -52,8 +52,8 @@ const AboutSection = () => {
 						</div>
 					</div>
 					<div className="flex gap-2">
-						<div className="w-[100px] h-[50px] border border-yellow-400 flex justify-center items-center rounded-full" >
-							<FaPeopleRoof />
+						<div className="w-[140px] h-[50px] border border-yellow-400 flex justify-center items-center rounded-full" >
+							<FaPeopleRoof className='w-10' />
 						</div>
 						<div>
 							<h3 className="text-blue-900 font-semibold text-xl">Supportive Community</h3>
@@ -62,7 +62,7 @@ const AboutSection = () => {
 					</div>
 					<div className="flex gap-2">
 						<div className="w-[100px] h-[50px] border border-yellow-400 flex justify-center items-center rounded-full" >
-							<FaPeopleCarryBox />
+							<FaPeopleCarryBox className='w-10' />
 						</div>
 						<div>
 							<h3 className="text-blue-900 font-semibold text-xl"> Knowledge Sharing and Growth</h3>

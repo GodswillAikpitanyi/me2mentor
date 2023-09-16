@@ -8,11 +8,11 @@ import Blog from './pages/Blog'
 import Contact from './pages/Contact'
 import Services from './pages/Services'
 import AllMentors from './pages/AllMentors'
+import MentorDetails from './pages/MentorDetails'
 import Login from './pages/Login'
 
 
-function App() {
-
+const App = () => {
   return (
     <div>
 
@@ -26,9 +26,10 @@ function App() {
         <Route path='/mentee-register' element={<MenteeRegister />} />
         <Route path='/mentor-register' element={<MentorRegister />} />
         <Route path='/all-mentors' element={<AllMentors />} />
+        <Route path="/mentor/:id" element={<MentorDetails />} />
       </Routes>
 
-    </div>
+    </div >
   )
 }
 

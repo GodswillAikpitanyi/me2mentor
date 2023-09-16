@@ -81,6 +81,13 @@ const NavBar = () => {
 						)
 					})}
 				</ul>
+				<div>
+					<button className=" border-2 py-2 px-5 rounded-md hover:text-black hover:bg-white transition">
+						<Link to='/login'>
+							Login
+						</Link>
+					</button>
+				</div>
 			</div>
 
 			{/* Desktop Navbar */}
@@ -108,6 +115,7 @@ const NavBar = () => {
 							</ul>
 						</div>
 
+
 						<div className="flex gap-4 items-center">
 
 
@@ -121,7 +129,7 @@ const NavBar = () => {
 								/>
 							</div>
 							<div>
-								<button className=" border border-3 py-2 px-5 rounded-md hover:text-black hover:bg-white transition">
+								<button className="border-2 py-2 px-5 rounded-md hover:text-black hover:bg-white transition">
 									<Link to='/login'>
 										Login
 									</Link>

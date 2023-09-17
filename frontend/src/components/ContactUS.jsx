@@ -21,20 +21,20 @@ const ContactUS = () => {
 					<form >
 						<div >
 							<label htmlFor="name" className="block text-base font-semibold">Full Name</label>
-							<input type="text" placeholder="Full Name" className="border outline-0 p-2 rounded-md w-full  bg-[#f5f8fa]" />
+							<input type="text" placeholder="Full Name" className="text-black border outline-0 p-2 rounded-md w-full  bg-[#f5f8fa]" />
 						</div>
 						<div>
 							<label htmlFor="email" className="block text-base font-semibold">Email</label>
-							<input type="email" placeholder="Email" className="border outline-0 p-2 rounded-md w-full  bg-[#f5f8fa]" />
+							<input type="email" placeholder="Email" className="text-black border outline-0 p-2 rounded-md w-full  bg-[#f5f8fa]" />
 						</div>
 						<div>
 							<label htmlFor="number" className=" block text-base font-semibold">Phone Number</label>
-							<input type="number" placeholder="Phone Number" className="border outline-0 p-2 rounded-md w-full  bg-[#f5f8fa]" />
+							<input type="number" placeholder="Phone Number" className="text-black border outline-0 p-2 rounded-md w-full  bg-[#f5f8fa]" />
 						</div>
 
 						<div className="">
 							<label htmlFor="name" className="block text-base font-semibold">Message</label>
-							<textarea name="" id="" cols="10" rows="7" placeholder="Message" className="border outline-0 p-2 rounded-md w-full  bg-[#f5f8fa]"></textarea>
+							<textarea name="" id="" cols="10" rows="7" placeholder="Message" className="text-black border outline-0 p-2 rounded-md w-full  bg-[#f5f8fa]"></textarea>
 						</div>
 
 						<div>

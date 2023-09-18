@@ -4,6 +4,7 @@ import Hero from '../components/Hero'
 import About from '../components/AboutSection'
 import NavBar from '../components/NavBar'
 import Mentors from '../components/Mentors'
+
 const Home = () => {
     return (
         <div className='' >

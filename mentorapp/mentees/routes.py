@@ -1,7 +1,7 @@
 from flask import render_template, url_for,flash, redirect, request, Blueprint
 from flask_login import login_user, current_user, logout_user, login_required
 from mentorapp import db, bcrypt
-from mentorapp.models import User, Recipe
+from mentorapp.models import Mentee
 from mentorapp.mentees.forms import (RegistrationForm, LoginForm, UpdateAccountForm,
                                     RequestResetForm, ResetPasswordForm)
 from mentorapp.mentees.utils import save_picture, send_reset_email

@@ -1,7 +1,7 @@
-from flask import render_template, url_for,flash, redirect, request, Blueprint
+from flask import Blueprint, jsonify, request, current_app
 from flask_login import login_user, current_user, logout_user, login_required
 from mentorapp import db, bcrypt
-from mentorapp.models import User, Recipe
+from mentorapp.models import Mentor
 from mentorapp.mentors.forms import (RegistrationForm, LoginForm, UpdateAccountForm,
                                     RequestResetForm, ResetPasswordForm)
 from mentorapp.mentors.utils import save_picture, send_reset_email
@@ -11,39 +11,65 @@ mentors = Blueprint('mentors', __name__)
 
 @mentors.route("/register", methods=['GET', 'POST'])
 def register():
-    if current_user.is_authenticated:
-        return redirect(url_for('main.home'))
-    form = RegistrationForm()
-    if form.validate_on_submit():
-        hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
-        user = Mentor(username=form.username.data, email=form.email.data, password_hash=hashed_password)
-        db.session.add(user)
-        db.session.commit()
-        flash('Account has been created! Kindly log in', 'success')
-        return redirect(url_for('mentors.login'))
-    return render_template('register.html', title='Register', form=form)
+    '''
+        a register function for the mentor route
+    '''
+    data = request.json  # Assuming data is sent as JSON from React
+
+    # Validate the data received from React
+    if not all(key in data for key in ('username', 'email', 'password')):
+        return jsonify({'message': 'Incomplete data'}), 400
+
+    # Check if the email is already registered
+    if Mentor.query.filter_by(email=data['email']).first():
+        return jsonify({'message': 'Email already registered'}), 400
+
+    # Hash the password
+    hashed_password = bcrypt.generate_password_hash(data['password']).decode('utf-8')
+
+    # Create a new Mentor instance and add it to the database
+    mentor = Mentor(
+        username=data['username'],
+        email=data['email'],
+        password_hash=hashed_password
+    )
+    db.session.add(mentor)
+    db.session.commit()
+
+    return jsonify({'message': 'Account has been created! Kindly log in'}), 201
 
 
 @mentors.route("/login", methods=['GET', 'POST'])
 def login():
-    if current_user.is_authenticated:
-        return redirect(url_for('main.home'))
-    form = LoginForm()
-    if form.validate_on_submit():
-        user = Mentor.query.filter_by(email=form.email.data).first()
-        if user and bcrypt.check_password_hash(user.password_hash, form.password.data):
-            login_user(user, remember=form.remember.data)
-            next_page = request.args.get('next')
-            return redirect(next_page) if next_page else redirect(url_for('main.home'))
-        else:
-            flash('Login Unsuccessful. Please check email and password', 'danger')
-    return render_template('login.html', title='Login', form=form)
+    '''
+        login funtion for the mentor route
+    '''
+    data = request.json  # Assuming data is sent as JSON from React
+
+    # Validate the data received from React
+    if not all(key in data for key in ('email', 'password')):
+        return jsonify({'message': 'Incomplete data'}), 400
+
+    # Find the mentor by email
+    mentor = Mentor.query.filter_by(email=data['email']).first()
+
+    # Check if the mentor exists and the password is correct
+    if mentor and bcrypt.check_password_hash(mentor.password_hash, data['password']):
+        login_user(mentor)
+        return jsonify({'message': 'Login successful'})
+
+    return jsonify({'message': 'Login Unsuccessful. Please check email and password'}), 401
 
 
-@mentors.route("/logout")
+
+@mentors.route("/logout", methods=['POST'])
+@login_required
 def logout():
+    '''
+        logout funtion for the mentor route
+    '''
     logout_user()
-    return redirect(url_for('main.home'))
+    return jsonify({'message': 'Logged out'})
 
 
 
@@ -70,15 +96,20 @@ def account():
 
 @mentors.route("/reset_password", methods=['GET', 'POST'])
 def reset_request():
-    if current_user.is_authenticated:
-        return redirect(url_for('main.home'))
-    form = RequestResetForm()
-    if form.validate_on_submit():
-        user = Mentor.query.filter_by(email=form.email.data).first()
-        send_reset_email(user)
-        flash('An email has been sent with instructions to reset your password.', 'info')
-        return redirect(url_for('mentors.login'))
-    return render_template('reset_request.html', title='Reset Password', form=form)
+    data = request.json  # Assuming data is sent as JSON from React
+
+    # Validate the data received from React
+    if not all(key in data for key in ('email',)):
+        return jsonify({'message': 'Incomplete data'}), 400
+
+    mentor = Mentor.query.filter_by(email=data['email']).first()
+
+    if mentor:
+        send_reset_email(mentor)
+    # Send a reset email regardless of whether the email exists or not
+    # This helps prevent information leakage
+    return jsonify({'message': 
+                    'An email has been sent with instructions to reset your password.'}), 200
 
 
 @mentors.route("/reset_password/<token>", methods=['GET', 'POST'])

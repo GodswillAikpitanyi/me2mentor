@@ -29,7 +29,7 @@ class Mentee(db.Model, UserMixin):
     username = db.Column(db.String(20), unique=True, nullable=False)
     password_hash = db.Column(db.String(60), nullable=False)
     profile_picture = db.Column(db.String(255), nullable=False, default='default.jpg')
-    interests = db.Column(db.String)
+    interests = db.Column(db.String(255), nullable=False)
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     updated_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
 
@@ -73,7 +73,7 @@ def load_user(mentor_id):
 
 class Mentor(db.Model, UserMixin):
     """
-        Mentee class with full descriptions
+        Mentor class with full descriptions
     """
     __tablename__ = 'mentors'
     mentor_id = db.Column(db.Integer, primary_key=True)

@@ -1,5 +1,6 @@
 """ installed package imports """
-from flask import Flask
+from flask import Flask, jsonify, request
+from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
@@ -21,8 +22,12 @@ mail = Mail()
 
 
 def create_app(config_class=Config):
+    '''
+        function to run the app
+    '''
     app = Flask(__name__)
     app.config.from_object(Config)
+    CORS(app)
 
     db.init_app(app)
     bcrypt.init_app(app)
@@ -30,14 +35,14 @@ def create_app(config_class=Config):
     mail.init_app(app)
 
     # circular import prevention #
-    '''from recipeapp.users.routes import users
-    from recipeapp.recipes.routes import recipes
-    from recipeapp.main.routes import main
-    from recipeapp.errors.handlers import errors'''
+    from mentorapp.mentees.routes import mentees
+    from mentorapp.mentors.routes import mentors
+    from mentorapp.main.routes import main
+    from mentorapp.errors.handlers import errors
 
     # Flask blueprint register
-    app.register_blueprint(users)
-    app.register_blueprint(recipes)
+    app.register_blueprint(mentees)
+    app.register_blueprint(mentors)
     app.register_blueprint(main)
     app.register_blueprint(errors)
 

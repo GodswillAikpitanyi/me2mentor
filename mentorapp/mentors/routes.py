@@ -1,9 +1,9 @@
+''' Module import statements
+'''
 from flask import Blueprint, jsonify, request, current_app
 from flask_login import login_user, current_user, logout_user, login_required
 from mentorapp import db, bcrypt
 from mentorapp.models import Mentor
-from mentorapp.mentors.forms import (RegistrationForm, LoginForm, UpdateAccountForm,
-                                    RequestResetForm, ResetPasswordForm)
 from mentorapp.mentors.utils import save_picture, send_reset_email
 
 mentors = Blueprint('mentors', __name__)
@@ -14,7 +14,8 @@ def register():
     '''
         a register function for the mentor route
     '''
-    data = request.json  # Assuming data is sent as JSON from React
+    # data sent from react in JSON
+    data = request.json
 
     # Validate the data received from React
     if not all(key in data for key in ('username', 'email', 'password')):
@@ -44,7 +45,8 @@ def login():
     '''
         login funtion for the mentor route
     '''
-    data = request.json  # Assuming data is sent as JSON from React
+    # data sent from react in JSON
+    data = request.json
 
     # Validate the data received from React
     if not all(key in data for key in ('email', 'password')):
@@ -75,28 +77,36 @@ def logout():
 
 @mentors.route("/account", methods=['GET', 'POST'])
 @login_required
-def account():
-    form = UpdateAccountForm()
-    if form.validate_on_submit():
-        if form.picture.data:
-            picture_file = save_picture(form.picture.data)
-            current_user.image_file = picture_file
-        current_user.username = form.username.data
-        current_user.email = form.email.data
-        db.session.commit()
-        flash('Your account has been updated!', 'success')
-        return redirect(url_for('mentors.account'))
-    elif request.method == 'GET':
-        form.username.data = current_user.username
-        form.email.data = current_user.email
-    image_file = url_for('static', filename='profile_pictures/' + current_user.image_file)
-    return render_template('account.html', title='Account', image_file=image_file, form=form)
+def update_account():
+    '''
+    function to update the mentor's account
+    '''
+    # data sent from react in JSON
+    data = request.json
+
+    # Validate the data received from React
+    if not all(key in data for key in ('username', 'email', 'picture')):
+        return jsonify({'message': 'Incomplete data'}), 400
+
+    # Update mentor's account details
+    if data['picture']:
+        picture_file = save_picture(data['picture'])
+        current_user.profile_picture = picture_file
+    current_user.username = data['username']
+    current_user.email = data['email']
+    db.session.commit()
+
+    return jsonify({'message': 'Your account has been updated!'}), 200
 
 
 
 @mentors.route("/reset_password", methods=['GET', 'POST'])
 def reset_request():
-    data = request.json  # Assuming data is sent as JSON from React
+    '''
+        function to reset the password
+    '''
+    # data sent from react in JSON
+    data = request.json
 
     # Validate the data received from React
     if not all(key in data for key in ('email',)):
@@ -114,17 +124,24 @@ def reset_request():
 
 @mentors.route("/reset_password/<token>", methods=['GET', 'POST'])
 def reset_token(token):
-    if current_user.is_authenticated:
-        return redirect(url_for('main.home'))
+    '''
+    function to get the reset token to reset password
+    '''
+    # data sent from react in JSON
+    data = request.json
+
+    # Validate the data received from React
+    if not all(key in data for key in ('password',)):
+        return jsonify({'message': 'Incomplete data'}), 400
+
     user = Mentor.verify_reset_token(token)
+
     if user is None:
-        flash('That is an invalid or expired token', 'warning')
-        return redirect(url_for('mentors.reset_request'))
-    form = ResetPasswordForm()
-    if form.validate_on_submit():
-        hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
-        user.password = hashed_password
-        db.session.commit()
-        flash(f'Your password has been updated! You are now able to log in', 'success')
-        return redirect(url_for('mentors.login'))
-    return render_template('reset_token.html', title='Reset Password', form=form)
+        return jsonify({'message': 'That is an invalid or expired token'}), 400
+
+    # Hash the new password and update it
+    hashed_password = bcrypt.generate_password_hash(data['password']).decode('utf-8')
+    user.password_hash = hashed_password
+    db.session.commit()
+
+    return jsonify({'message': 'Your password has been updated! You are now able to log in'}), 200

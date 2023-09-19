@@ -1,9 +1,9 @@
-from flask import render_template, url_for,flash, redirect, request, Blueprint
+''' Module import statements
+'''
+from flask import Blueprint, jsonify, request, current_app
 from flask_login import login_user, current_user, logout_user, login_required
 from mentorapp import db, bcrypt
 from mentorapp.models import Mentee
-from mentorapp.mentees.forms import (RegistrationForm, LoginForm, UpdateAccountForm,
-                                    RequestResetForm, ResetPasswordForm)
 from mentorapp.mentees.utils import save_picture, send_reset_email
 
 mentees = Blueprint('mentees', __name__)
@@ -11,89 +11,136 @@ mentees = Blueprint('mentees', __name__)
 
 @mentees.route("/register", methods=['GET', 'POST'])
 def register():
-    if current_user.is_authenticated:
-        return redirect(url_for('main.home'))
-    form = RegistrationForm()
-    if form.validate_on_submit():
-        hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
-        user = Mentee(username=form.username.data, email=form.email.data, password_hash=hashed_password)
-        db.session.add(user)
-        db.session.commit()
-        flash('Account has been created! Kindly log in', 'success')
-        return redirect(url_for('mentees.login'))
-    return render_template('register.html', title='Register', form=form)
+    '''
+        a register function for the mentee route
+    '''
+    # data sent from react in JSON
+    data = request.json
+
+    # Validate the data received from React
+    if not all(key in data for key in ('username', 'email', 'password')):
+        return jsonify({'message': 'Incomplete data'}), 400
+
+    # Check if the email is already registered
+    if Mentee.query.filter_by(email=data['email']).first():
+        return jsonify({'message': 'Email already registered'}), 400
+
+    # Hash the password
+    hashed_password = bcrypt.generate_password_hash(data['password']).decode('utf-8')
+
+    # Create a new Mentee instance and add it to the database
+    mentee = Mentee(
+        username=data['username'],
+        email=data['email'],
+        password_hash=hashed_password
+    )
+    db.session.add(mentee)
+    db.session.commit()
+
+    return jsonify({'message': 'Account has been created! Kindly log in'}), 201
 
 
 @mentees.route("/login", methods=['GET', 'POST'])
 def login():
-    if current_user.is_authenticated:
-        return redirect(url_for('main.home'))
-    form = LoginForm()
-    if form.validate_on_submit():
-        user = Mentee.query.filter_by(email=form.email.data).first()
-        if user and bcrypt.check_password_hash(user.password_hash, form.password.data):
-            login_user(user, remember=form.remember.data)
-            next_page = request.args.get('next')
-            return redirect(next_page) if next_page else redirect(url_for('main.home'))
-        else:
-            flash('Login Unsuccessful. Please check email and password', 'danger')
-    return render_template('login.html', title='Login', form=form)
+    '''
+        login funtion for the mentor route
+    '''
+    # data sent from react in JSON
+    data = request.json
+
+    # Validate the data received from React
+    if not all(key in data for key in ('email', 'password')):
+        return jsonify({'message': 'Incomplete data'}), 400
+
+    # Find the mentor by email
+    mentee = Mentee.query.filter_by(email=data['email']).first()
+
+    # Check if the mentee exists and the password is correct
+    if mentee and bcrypt.check_password_hash(mentee.password_hash, data['password']):
+        login_user(mentee)
+        return jsonify({'message': 'Login successful'})
+
+    return jsonify({'message': 'Login Unsuccessful. Please check email and password'}), 401
 
 
-@mentees.route("/logout")
+
+@mentees.route("/logout", methods=['POST'])
+@login_required
 def logout():
+    '''
+        logout funtion for the mentor route
+    '''
     logout_user()
-    return redirect(url_for('main.home'))
+    return jsonify({'message': 'Logged out'})
 
 
 
 @mentees.route("/account", methods=['GET', 'POST'])
 @login_required
-def account():
-    form = UpdateAccountForm()
-    if form.validate_on_submit():
-        if form.picture.data:
-            picture_file = save_picture(form.picture.data)
-            current_user.image_file = picture_file
-        current_user.username = form.username.data
-        current_user.email = form.email.data
-        db.session.commit()
-        flash('Your account has been updated!', 'success')
-        return redirect(url_for('mentees.account'))
-    elif request.method == 'GET':
-        form.username.data = current_user.username
-        form.email.data = current_user.email
-    image_file = url_for('static', filename='profile_pictures/' + current_user.image_file)
-    return render_template('account.html', title='Account', image_file=image_file, form=form)
+def update_account():
+    '''
+    function to update the mentee's account
+    '''
+    # data sent from react in JSON
+    data = request.json
 
+    # Validate the data received from React
+    if not all(key in data for key in ('username', 'email', 'picture')):
+        return jsonify({'message': 'Incomplete data'}), 400
+
+    # Update mentees's account details
+    if data['picture']:
+        picture_file = save_picture(data['picture'])
+        current_user.profile_picture = picture_file
+    current_user.username = data['username']
+    current_user.email = data['email']
+    db.session.commit()
+
+    return jsonify({'message': 'Your account has been updated!'}), 200
 
 
 @mentees.route("/reset_password", methods=['GET', 'POST'])
 def reset_request():
-    if current_user.is_authenticated:
-        return redirect(url_for('main.home'))
-    form = RequestResetForm()
-    if form.validate_on_submit():
-        user = Mentee.query.filter_by(email=form.email.data).first()
-        send_reset_email(user)
-        flash('An email has been sent with instructions to reset your password.', 'info')
-        return redirect(url_for('mentees.login'))
-    return render_template('reset_request.html', title='Reset Password', form=form)
+    '''
+        function to reset the password
+    '''
+    # data sent from react in JSON
+    data = request.json
+
+    # Validate the data received from React
+    if not all(key in data for key in ('email',)):
+        return jsonify({'message': 'Incomplete data'}), 400
+
+    mentee = Mentee.query.filter_by(email=data['email']).first()
+
+    if mentee:
+        send_reset_email(mentee)
+    # Send a reset email regardless of whether the email exists or not
+    # This helps prevent information leakage
+    return jsonify({'message':
+                    'An email has been sent with instructions to reset your password.'}), 200
 
 
 @mentees.route("/reset_password/<token>", methods=['GET', 'POST'])
 def reset_token(token):
-    if current_user.is_authenticated:
-        return redirect(url_for('main.home'))
+    '''
+    function to get the reset token to reset password
+    '''
+    # data sent from react in JSON
+    data = request.json
+
+    # Validate the data received from React
+    if not all(key in data for key in ('password',)):
+        return jsonify({'message': 'Incomplete data'}), 400
+
     user = Mentee.verify_reset_token(token)
+
     if user is None:
-        flash('That is an invalid or expired token', 'warning')
-        return redirect(url_for('mentees.reset_request'))
-    form = ResetPasswordForm()
-    if form.validate_on_submit():
-        hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
-        user.password = hashed_password
-        db.session.commit()
-        flash(f'Your password has been updated! You are now able to log in', 'success')
-        return redirect(url_for('mentees.login'))
-    return render_template('reset_token.html', title='Reset Password', form=form)
+        return jsonify({'message': 'That is an invalid or expired token'}), 400
+
+    # Hash the new password and update it
+    hashed_password = bcrypt.generate_password_hash(data['password']).decode('utf-8')
+    user.password_hash = hashed_password
+    db.session.commit()
+
+    return jsonify({'message': 'Your password has been updated! You are now able to log in'}), 200

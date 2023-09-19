@@ -32,7 +32,7 @@ export const topMentors = [
 		name: 'Ikpa Imade',
 		country: 'Canada',
 		field: 'Finance Specialist',
-		category: 'Banking & Finance',
+		category: 'Finance Management',
 		url: '/ment6.jpg',
 		experience: '10 years'
 	},
@@ -40,8 +40,8 @@ export const topMentors = [
 		id: 2,
 		name: 'Graziella',
 		country: 'Nigeria',
-		field: 'Psychologist',
-		category: 'Healthcare',
+		field: 'Artist',
+		category: 'Art & Creativity',
 		url: '/ment2.jpg',
 		experience: '8 years'
 	},
@@ -67,8 +67,8 @@ export const topMentors = [
 		id: 5,
 		name: 'Ikpa Precious',
 		country: 'Canada',
-		field: 'Web Development',
-		category: 'Technology & Innovation',
+		field: 'Entrepreneur',
+		category: 'Youth & Leadership',
 		url: '/ment4.jpg',
 		experience: '10 years'
 	},

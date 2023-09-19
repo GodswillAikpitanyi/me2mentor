@@ -8,7 +8,6 @@ export default {
     extend: {
       backgroundImage: {
         'hero-pattern': "url('/pic-04.png')",
-        'service': "url('/pic-02.png')",
         'contact': "url('/contactBg.jpg')",
       }
     },

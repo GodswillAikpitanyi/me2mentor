@@ -24,7 +24,7 @@ class Mentee(db.Model, UserMixin):
     mentee_id = db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String(20), nullable=False)
     last_name = db.Column(db.String(20), nullable=False)
-    age = db.Column(db.Integer(), nullable=False)
+    age = db.Column(db.Integer, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
     username = db.Column(db.String(20), unique=True, nullable=False)
     password_hash = db.Column(db.String(60), nullable=False)
@@ -80,7 +80,7 @@ class Mentor(db.Model, UserMixin):
     mentee_id = db.Column(db.Integer, db.ForeignKey('mentees.mentee_id'))
     first_name = db.Column(db.String(20), nullable=False)
     last_name = db.Column(db.String(20), nullable=False)
-    age = db.Column(db.Integer(), nullable=False)
+    age = db.Column(db.Integer, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
     username = db.Column(db.String(20), unique=True, nullable=False)
     password_hash = db.Column(db.String(60), nullable=False)
@@ -125,5 +125,5 @@ class MenteeMentor(db.Model, UserMixin):
     """
     __tablename__ = 'mentee_mentor'
     mentee_mentor_id = db.Column(db.Integer, primary_key=True)
-    mentee_id = db.Column(db.Integer, db.ForeignKey('mentees.id'))
-    mentor_id = db.Column(db.Integer, db.ForeignKey('mentors.id'))
+    mentee_id = db.Column(db.Integer, db.ForeignKey('mentees.mentee_id'))
+    mentor_id = db.Column(db.Integer, db.ForeignKey('mentors.mentor_id'))

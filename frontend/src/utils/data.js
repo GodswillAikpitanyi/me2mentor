@@ -100,3 +100,48 @@ export const topMentors = [
 		experience: '10years'
 	},
 ]
+
+
+export const services = [
+	{
+		id: 1,
+		img: '/entrepreneur.jpg',
+		title: 'Entrepreneurship',
+		content: "The world of entrepreneurship is akin to embarking on a daring expedition into uncharted territory. It's a transformative journey filled with uncertainty, risk, and boundless potential, and mentorship is the compass that guides aspiring entrepreneurs along this exhilarating path. Entrepreneurship is a continual process of problem-solving and adaptation"
+	},
+
+	{
+		id: 2,
+		img: '/arts.jpg',
+		title: 'Art and Creativity',
+		content: "Art and creativity are boundless, and building a career in this realm means unleashing your creative potential. It's a journey where blank canvases, empty pages, and silent stages become a playground for your imagination to run wild. It's an invitation to paint, write, sing, dance, and create with abandon."
+	},
+
+	{
+		id: 3,
+		img: '/finance.jpg',
+		title: 'Finance Management',
+		content: "TFinancial management is more than a career choice; it's a calling to manage resources wisely, fiscal stewardship, and secure financial futures. Getting into this world means embracing financial acumen, analytical thinking, and a commitment to the prudent allocation of assets. Mentors, with their seasoned experience, offer invaluable insights to help shape your financial acumen."
+	},
+
+	{
+		id: 4,
+		img: '/health.jpg',
+		title: 'Healthcare',
+		content: "Healthcare is rife with complex problems and ethical dilemmas. Mentors provide valuable guidance on critical thinking, decision-making, and ethical considerations. They offer insights into navigating challenging situations while upholding the highest ethical standards."
+	},
+
+	{
+		id: 5,
+		img: '/agric.jpg',
+		title: 'Agriculture',
+		content: "In a world where the pace of life seems to quicken each day, an increasing number of individuals are discovering the profound rewards of agriculture. This shift, from urban or corporate environments to the fertile fields of agriculture, represents not just a change in career but a transformative lifestyle choice. Agriculture is more than just a profession; it's a connection to the very essence of life—the soil."
+	},
+
+	{
+		id: 6,
+		img: '/technology.png',
+		title: 'Technology and Innovation',
+		content: "Tech isn't confined to a single path. It's a mosaic of career opportunities, from software development and cybersecurity to product management and data science. It allows you to explore diverse roles and find the niche that resonates with your passion and skills. The tech industry offers a fertile ground for innovation and entrepreneurship."
+	},
+]

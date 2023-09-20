@@ -64,6 +64,35 @@ const MenteeRegister = () => {
 		return Object.keys(newErrors).length === 0;
 
 	};
+	// const handleSubmit = async (e) => {
+	// 	e.preventDefault();
+	// 	if (validateForm()) {
+	// 		// If validation passes, create a FormData object to send as a POST request
+	// 		const formDataToSend = new FormData();
+	// 		for (const key in formData) {
+	// 			formDataToSend.append(key, formData[key]);
+	// 		}
+
+	// 		try {
+	// 			const response = await fetch('http://localhost:5000/api/register', {
+	// 				method: 'POST',
+	// 				body: formDataToSend,
+	// 			});
+
+	// 			if (response.status === 201) {
+	// 				console.log('Registration successful');
+	// 				const data = await response.json();
+	// 				console.log('Response data:', data);
+	// 			} else {
+	// 				console.error('Registration failed');
+	// 			}
+	// 		} catch (error) {
+	// 			console.error('Error:', error);
+	// 		}
+	// 	}
+	// };
+
+
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		if (validateForm()) {
@@ -74,7 +103,7 @@ const MenteeRegister = () => {
 			}
 
 			try {
-				const response = await fetch('http://localhost:5000/api/register', {
+				const response = await fetch('http://127.0.0.1:5000/register', {
 					method: 'POST',
 					body: formDataToSend,
 				});
@@ -83,15 +112,26 @@ const MenteeRegister = () => {
 					console.log('Registration successful');
 					const data = await response.json();
 					console.log('Response data:', data);
+
+					// Redirect to the home page (adjust the URL as needed)
+					window.location.href = '/home'; // You can use React Router here if applicable
+				} else if (response.status === 400) {
+					// Handle validation errors and display error messages to the user
+					const errorData = await response.json();
+					console.error('Registration failed:', errorData.message);
+					// Update the state to display error messages to the user
+					setErrors(errorData.errors);
 				} else {
+					// Handle other error cases (e.g., server errors) and show a generic error message
 					console.error('Registration failed');
+					// Display a generic error message to the user
 				}
 			} catch (error) {
 				console.error('Error:', error);
+				// Handle network errors or other exceptions and display an error message to the user
 			}
 		}
 	};
-
 
 	return (
 		<div className="w-full bg-gray-200 h-full flex flex-col justify-center py-10">

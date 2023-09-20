@@ -64,6 +64,8 @@ const MenteeRegister = () => {
 		return Object.keys(newErrors).length === 0;
 
 	};
+
+
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		if (validateForm()) {
@@ -83,11 +85,23 @@ const MenteeRegister = () => {
 					console.log('Registration successful');
 					const data = await response.json();
 					console.log('Response data:', data);
+					// Redirect to the home page (adjust the URL as needed)
+					window.location.href = '/home'; // You can use React Router here if applicable
+				} else if (response.status === 400) {
+					// Handle validation errors and display error messages to the user
+					const errorData = await response.json();
+					console.error('Registration failed:', errorData.message);
+					// Update the state to display error messages to the user
+					setErrors(errorData.errors);
 				} else {
+					// Handle other error cases (e.g., server errors) and show a generic error message
 					console.error('Registration failed');
+					// Display a generic error message to the user
 				}
 			} catch (error) {
 				console.error('Error:', error);
+				// Handle network errors or other exceptions and display an error message to the user
+
 			}
 		}
 	};

@@ -16,8 +16,8 @@ export const navLinks = [
 	},
 	{
 		id: 4,
-		url: '/blogs',
-		name: 'Blogs'
+		url: '/blog',
+		name: 'Blog'
 	},
 	{
 		id: 5,
@@ -121,7 +121,7 @@ export const services = [
 		id: 3,
 		img: '/finance.jpg',
 		title: 'Finance Management',
-		content: "TFinancial management is more than a career choice; it's a calling to manage resources wisely, fiscal stewardship, and secure financial futures. Getting into this world means embracing financial acumen, analytical thinking, and a commitment to the prudent allocation of assets. Mentors, with their seasoned experience, offer invaluable insights to help shape your financial acumen."
+		content: "Finance management is more than a career choice; it's a calling to manage resources wisely, fiscal stewardship, and secure financial futures. Getting into this world means embracing financial acumen, analytical thinking, and a commitment to the prudent allocation of assets. Mentors, with their seasoned experience, offer invaluable insights to help shape your financial acumen."
 	},
 
 	{
@@ -143,5 +143,20 @@ export const services = [
 		img: '/technology.png',
 		title: 'Technology and Innovation',
 		content: "Tech isn't confined to a single path. It's a mosaic of career opportunities, from software development and cybersecurity to product management and data science. It allows you to explore diverse roles and find the niche that resonates with your passion and skills. The tech industry offers a fertile ground for innovation and entrepreneurship."
+	},
+]
+
+export const blog = [
+	{
+		id: 1,
+		img: '/pic-03.png',
+		title: 'Lorem Ip',
+		content: 'Lorem ipsum blala'
+	},
+	{
+		id: 2,
+		img: '/contactBg.jpg',
+		title: 'Lorem IP',
+		content: 'lorem ipsum dadada'
 	},
 ]

@@ -78,6 +78,8 @@ const Footer = () => {
 					</ul>
 				</div>
 			</div>
+			<div className='flex m:grid'>2023 &copy; All Rights Reserved</div>
+
 		</div>
 	)
 }

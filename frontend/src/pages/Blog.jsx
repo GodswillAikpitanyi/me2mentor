@@ -11,7 +11,7 @@ const Blog = () => {
         <div className="text-center font-bold text-2xl pb-5">
           Blog
         </div>
-        
+
         <div className="flex font-light gap-20">
           <div>
             <input
@@ -22,14 +22,14 @@ const Blog = () => {
               className="border p-2 px-10 outline-slate-400"
             />
           </div>
-          <div className="md:grid grid-rows-3 gap-10 space-x-6">
+          <div className="md:grid grid-rows-3 gap-10 ">
             {
               blog.map((data) => {
                 const { id, img, title, content } = data
                 return (
-                  <div key={id} className="md:grid grid-rows-3 p-3 gap-5 rounded-md border">
+                  <div key={id} className="md:grid grid-rows-2 p-3 gap-5 rounded-md border">
                     <div>
-                      <img src={img} className="w-full h-full" />
+                      <img src={img} className="w-full" />
                     </div>
 
                     <div>
@@ -39,15 +39,15 @@ const Blog = () => {
                   </div>
                 )
               })
-              }
-        </div>
+            }
+          </div>
         </div>
 
 
       </div>
-      
-      <Footer/>
-      </>
+
+      <Footer />
+    </>
   )
 }
 

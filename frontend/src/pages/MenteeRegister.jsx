@@ -114,7 +114,7 @@ const MenteeRegister = () => {
 					console.log('Response data:', data);
 
 					// Redirect to the home page (adjust the URL as needed)
-					window.location.href = '/home'; // You can use React Router here if applicable
+					window.location.href = '/'; // You can use React Router here if applicable
 				} else if (response.status === 400) {
 					// Handle validation errors and display error messages to the user
 					const errorData = await response.json();

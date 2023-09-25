@@ -1,6 +1,6 @@
 import { BsFillTelephoneFill } from 'react-icons/bs'
 import { IoMdMail } from 'react-icons/io'
-import { FaHouseChimney } from 'react-icons/fa6'
+import { FaHouseChimney, FaFacebook, FaLinkedin, FaGooglePlus, FaTwitter } from 'react-icons/fa6'
 import { IoIosArrowForward } from 'react-icons/io'
 import { Link } from 'react-router-dom'
 import { navLinks } from '../utils/data'
@@ -78,8 +78,19 @@ const Footer = () => {
 					</ul>
 				</div>
 			</div>
-			<div className='flex m:grid'>2023 &copy; All Rights Reserved</div>
-
+			<div className='flex'>2023 &copy; All Rights Reserved by<a href='#' className='text-yellow-400'> GAIP</a></div>
+			<div>
+				<div className='flex gap-2 justify-end'> Follow Us:
+				<ul>
+					<li className='flex gap-2'>
+						<FaFacebook />
+						<FaTwitter />
+						<FaLinkedin />
+						<FaGooglePlus />
+					</li>
+				</ul>
+				</div>
+			</div>
 		</div>
 	)
 }

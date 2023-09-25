@@ -12,17 +12,27 @@ const Blog = () => {
           Blog
         </div>
 
-        <div className="flex font-light gap-20">
+        <div className="flex gap-20">
           <div>
             <input
               type="text"
               name=""
               id=""
               placeholder="Search here.."
-              className="border p-2 px-10 outline-slate-400"
+              className="border p-2 px-10 outline-slate-400 font-light"
             />
+
+            <div className="text-blue-950 font-bold pt-20">CATEGORY
+              <ul className="">
+                <li>Trending</li>
+                <li>Events</li>
+                <li>Tips</li>
+                <li>Education</li>
+              </ul>
+            </div>
           </div>
-          <div className="md:grid grid-rows-3 gap-10 ">
+        
+        <div className="md:grid grid-rows-3 gap-10 ">
             {
               blog.map((data) => {
                 const { id, img, title, content } = data

@@ -80,7 +80,7 @@ const Footer = () => {
 			</div>
 			<div className='flex'>2023 &copy; All Rights Reserved by<a href='#' className='text-yellow-400'> GAIP</a></div>
 			<div>
-				<div className='flex gap-2 justify-end'> Follow Us:
+				<div className='flex gap-2 justify-end'> Follow us:
 				<ul>
 					<li className='flex gap-2'>
 						<Link to='#'><FaFacebook /></Link>

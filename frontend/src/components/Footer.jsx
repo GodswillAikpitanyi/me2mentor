@@ -83,10 +83,10 @@ const Footer = () => {
 				<div className='flex gap-2 justify-end'> Follow Us:
 				<ul>
 					<li className='flex gap-2'>
-						<FaFacebook />
-						<FaTwitter />
-						<FaLinkedin />
-						<FaGooglePlus />
+						<Link to='#'><FaFacebook /></Link>
+						<Link to='#'><FaTwitter /></Link>
+						<Link to='#'><FaLinkedin /></Link>
+						<Link to='#'><FaGooglePlus /></Link>
 					</li>
 				</ul>
 				</div>

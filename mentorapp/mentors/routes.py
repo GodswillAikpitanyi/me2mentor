@@ -1,46 +1,44 @@
 ''' Module import statements
 '''
-from flask import Blueprint, jsonify, request, current_app
+from flask import Blueprint, jsonify, request, session
 from flask_login import login_user, current_user, logout_user, login_required
 from mentorapp import db, bcrypt
 from mentorapp.models import Mentor
+from mentorapp.schemas import MentorSchema
 from mentorapp.mentors.utils import save_picture, send_reset_email
 
 mentors = Blueprint('mentors', __name__)
 
+mentor_schema = MentorSchema()
+mentors_schema = MentorSchema(many=True)
 
-@mentors.route("/register", methods=['GET', 'POST'])
+@mentors.route("/api/register", methods=['GET', 'POST'])
 def register():
     '''
         a register function for the mentor route
     '''
-    # data sent from react in JSON
-    data = request.json
+    try:
+        # Parse JSON data from the request
+        data = request.get_json()
 
-    # Validate the data received from React
-    if not all(key in data for key in ('username', 'email', 'password')):
-        return jsonify({'message': 'Incomplete data'}), 400
+        # Load (deserialize) the JSON data using MenteeSchema
+        mentor = mentor_schema.load(data)
 
-    # Check if the email is already registered
-    if Mentor.query.filter_by(email=data['email']).first():
-        return jsonify({'message': 'Email already registered'}), 400
+        # Checks if email already exists in the db.
+        existing_mentor = Mentor.query.filter_by(email=mentor.email).first()
+        if existing_mentor:
+            return "Email already exists", 409
 
-    # Hash the password
-    hashed_password = bcrypt.generate_password_hash(data['password']).decode('utf-8')
+        db.session.add(mentor)
+        db.session.commit()
+        return mentor_schema.jsonify(mentor), 201
 
-    # Create a new Mentor instance and add it to the database
-    mentor = Mentor(
-        username=data['username'],
-        email=data['email'],
-        password_hash=hashed_password
-    )
-    db.session.add(mentor)
-    db.session.commit()
-
-    return jsonify({'message': 'Account has been created! Kindly log in'}), 201
+    except Exception as e:
+        return str(e), 400
 
 
-@mentors.route("/login", methods=['GET', 'POST'])
+
+@mentors.route("/api/login", methods=['GET', 'POST'])
 def login():
     '''
         login funtion for the mentor route
@@ -63,6 +61,14 @@ def login():
     return jsonify({'message': 'Login Unsuccessful. Please check email and password'}), 401
 
 
+@mentors.route('/<int:id>', methods=['GET'])
+def singleMentor(id):
+    '''
+        method to get a single mentee
+    '''
+    single_mentor = Mentor.query.get(id)
+    return mentor_schema.jsonify(single_mentor)
+
 
 @mentors.route("/logout", methods=['POST'])
 @login_required
@@ -70,37 +76,51 @@ def logout():
     '''
         logout funtion for the mentor route
     '''
-    logout_user()
-    return jsonify({'message': 'Logged out'})
+    try:
+        # Clear the user's session to log them out
+        session.clear()
+        return jsonify({"message": "Logout successful"}), 200
+
+    except Exception as e:
+        return str(e), 400
 
 
 
-@mentors.route("/account", methods=['GET', 'POST'])
+@mentors.route("/api/account", methods=['GET', 'POST'])
 @login_required
 def update_account():
     '''
     function to update the mentor's account
     '''
-    # data sent from react in JSON
-    data = request.json
+    try:
+        # Find the Mentor by ID
+        mentor = db.session.get(Mentor, id)
 
-    # Validate the data received from React
-    if not all(key in data for key in ('username', 'email', 'picture')):
-        return jsonify({'message': 'Incomplete data'}), 400
+        if not mentor:
+            return "Mentor not found", 404
 
-    # Update mentor's account details
-    if data['picture']:
-        picture_file = save_picture(data['picture'])
-        current_user.profile_picture = picture_file
-    current_user.username = data['username']
-    current_user.email = data['email']
-    db.session.commit()
+        # Parse JSON data from the request
+        data = request.get_json()
 
-    return jsonify({'message': 'Your account has been updated!'}), 200
+        # Update the Mentor object with the new data
+        mentor.first_name = data.get('first_name', mentor.first_name)
+        mentor.last_name = data.get('last_name', mentor.last_name)
+        mentor.email = data.get('email', mentor.email)
+        mentor.username = data.get('username', mentor.username)
+        mentor.age = data.get('age', mentor.age)
+
+        # Commit the changes to the database
+        db.session.commit()
+
+        # Serialize the updated Mentor and return it as JSON
+        return mentor_schema.jsonify(mentor), 200
+
+    except Exception as e:
+        return str(e), 400 
 
 
 
-@mentors.route("/reset_password", methods=['GET', 'POST'])
+@mentors.route("/api/reset_password", methods=['GET', 'POST'])
 def reset_request():
     '''
         function to reset the password
@@ -122,7 +142,7 @@ def reset_request():
                     'An email has been sent with instructions to reset your password.'}), 200
 
 
-@mentors.route("/reset_password/<token>", methods=['GET', 'POST'])
+@mentors.route("/api/reset_password/<token>", methods=['GET', 'POST'])
 def reset_token(token):
     '''
     function to get the reset token to reset password

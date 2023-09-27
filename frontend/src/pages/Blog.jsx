@@ -1,26 +1,26 @@
-/* eslint-disable react/no-unescaped-entities */
 import NavBar from "../components/NavBar"
 import Footer from "../components/Footer"
 import { blog } from "../utils/data"
 
 const Blog = () => {
-  return (
-    <>
-      <NavBar />
-      <div className="px-10 pt-28 text-blue-900">
-        <div className="text-center font-bold text-2xl pb-5">
-          Blog
-        </div>
+	return (
+		<>
+			<NavBar />
+			<div className="px-10 pt-28 pb-16 text-blue-900">
+				<div className="text-center font-bold text-2xl pb-5">
+					Blog
+				</div>
 
-        <div className="flex gap-20">
-          <div>
-            <input
-              type="text"
-              name=""
-              id=""
-              placeholder="Search here.."
-              className="border p-2 px-10 outline-slate-400 font-light"
-            />
+				<div className="flex lg:flex-row flex-col font-light gap-20 ">
+					<div className="lg:w-[30%]">
+						<input
+							type="text"
+							name=""
+							id=""
+							placeholder="Search here.."
+							className="border p-2 px-10 outline-slate-400 w-full"
+						/>
+					</div>
 
             <div className="text-blue-950 font-bold pt-20">CATEGORY
               <ul className="">
@@ -52,13 +52,17 @@ const Blog = () => {
             }
           </div>
         </div>
+									)
+								})
+							}
+						</div>
+					</div>
+				</div>
+			</div>
 
-
-      </div>
-
-      <Footer />
-    </>
-  )
+			<Footer />
+		</>
+	)
 }
 
 export default Blog

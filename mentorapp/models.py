@@ -3,7 +3,6 @@
 from datetime import datetime
 from itsdangerous import TimedJSONWebSignatureSerializer as Serializer
 from flask import current_app
-from flask_login import UserMixin
 from mentorapp import db, login_manager
 
 
@@ -16,7 +15,7 @@ def load_user(mentee_id):
     return Mentee.query.get(int(mentee_id))
 
 
-class Mentee(db.Model, UserMixin):
+class Mentee(db.Model):
     """
         Mentee class with full descriptions
     """
@@ -71,7 +70,7 @@ def load_user(mentor_id):
     return Mentor.query.get(int(mentor_id))
 
 
-class Mentor(db.Model, UserMixin):
+class Mentor(db.Model):
     """
         Mentor class with full descriptions
     """
@@ -119,7 +118,7 @@ class Mentor(db.Model, UserMixin):
         return str(self.mentor_id)
 
 
-class MenteeMentor(db.Model, UserMixin):
+class MenteeMentor(db.Model):
     """
         Mentee - Mentor relationship class
     """

@@ -149,14 +149,14 @@ export const services = [
 export const blog = [
 	{
 		id: 1,
-		img: '/pic-03.png',
+		img: '/blog1.jpg',
 		title: 'Lorem Ip',
-		content: 'Lorem ipsum blala'
+		content: 'Lorem ipsum blala Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, inventore reprehenderit architecto nesciunt quisquam dignissimos. Quaerat hic quidem voluptates dolorem laudantium! Architecto deserunt nesciunt iure minima dolor sapiente, necessitatibus sint.'
 	},
 	{
 		id: 2,
-		img: '/contactBg.jpg',
+		img: '/blog1.jpg',
 		title: 'Lorem IP',
-		content: 'lorem ipsum dadada'
+		content: 'lorem ipsum dadada Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, inventore reprehenderit architecto nesciunt quisquam dignissimos. Quaerat hic quidem voluptates dolorem laudantium! Architecto deserunt nesciunt iure minima dolor sapiente, necessitatibus sint.'
 	},
 ]

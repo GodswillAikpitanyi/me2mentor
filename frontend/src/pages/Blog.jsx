@@ -1,6 +1,8 @@
 import NavBar from "../components/NavBar"
 import Footer from "../components/Footer"
 import { blog } from "../utils/data"
+import { Link } from "react-router-dom"
+import { FaMessage } from "react-icons/fa6"
 
 const Blog = () => {
 	return (
@@ -41,8 +43,17 @@ const Blog = () => {
 										</div>
 
 										<div>
-											<h1 className="font-bold">{title} </h1>
+											<h1 className="font-bold pt-3">{title} </h1>
 											<p>{content} </p>
+										</div>
+										<div className="font-bold text-blue-900 pt-5">
+											<Link to="#">
+												Read more
+											</Link>
+											<div className="flex justify-end text-yellow-400 px-5">
+												<FaMessage />
+												10 comments
+											</div>
 										</div>
 									</div>
 								)

@@ -9,7 +9,6 @@ const Blog = () => {
 			<div className="px-10 pt-28 pb-16 text-blue-900">
 				<div className="text-center font-bold text-2xl pb-5">
 					Blog
-
 				</div>
 
 				<div className="flex lg:flex-row flex-col font-light gap-20 ">
@@ -23,22 +22,36 @@ const Blog = () => {
 						/>
 					</div>
 
-					<div className="lg:w-[70%]">
-						<div className="md:grid grid-rows-2 gap-10 ">
-							{
-								blog.map((data) => {
-									const { id, img, title, content } = data
-									return (
-										<div key={id} className="p-3 rounded-md border">
-											<div className="w-full">
-												<img src={img} className="w-full" />
-											</div>
+            <div className="text-blue-950 font-bold pt-20">CATEGORY
+              <ul className="">
+                <li>Trending</li>
+                <li>Events</li>
+                <li>Tips</li>
+                <li>Education</li>
+              </ul>
+            </div>
+          </div>
+        
+        <div className="md:grid grid-rows-3 gap-10 ">
+            {
+              blog.map((data) => {
+                const { id, img, title, content } = data
+                return (
+                  <div key={id} className="md:grid grid-rows-2 p-3 gap-5 rounded-md border">
+                    <div>
+                      <img src={img} className="w-full" />
+                    </div>
 
-											<div>
-												<h1 className="font-bold text-2xl">{title} </h1>
-												<p>{content} </p>
-											</div>
-										</div>
+                    <div>
+                      <h1 className="font-bold">{title} </h1>
+                      <p>{content} </p>
+                    </div>
+                  </div>
+                )
+              })
+            }
+          </div>
+        </div>
 									)
 								})
 							}

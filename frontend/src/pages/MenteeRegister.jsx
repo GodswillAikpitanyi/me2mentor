@@ -9,7 +9,7 @@ const defaultValues = {
 	phoneNumber: '',
 	password: '',
 	confirmPassword: '',
-	qualification: '',
+	interests: '',
 	picture: null,
 }
 
@@ -74,7 +74,7 @@ const MenteeRegister = () => {
 			}
 
 			try {
-				const response = await fetch('http://127.0.0.1:5000/register', {
+				const response = await fetch('http://127.0.0.1:5000/mentees/register', {
 					method: 'POST',
 					body: formDataToSend,
 				});

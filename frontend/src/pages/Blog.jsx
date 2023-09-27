@@ -37,13 +37,14 @@ const Blog = () => {
 							blog.map((data) => {
 								const { id, img, title, content } = data
 								return (
-									<div key={id} className="p-3 gap-5 rounded-md border">
+									<div key={id} className="p-0 gap-5 rounded-md border">
 										<div>
 											<img src={img} className="w-full" />
 										</div>
 
+										<div className="p-8">
 										<div>
-											<h1 className="font-bold pt-3">{title} </h1>
+											<h1 className="font-bold">{title} </h1>
 											<p>{content} </p>
 										</div>
 										<div className="font-bold text-blue-900 pt-5">
@@ -54,6 +55,7 @@ const Blog = () => {
 												<FaMessage />
 												10 comments
 											</div>
+										</div>
 										</div>
 									</div>
 								)

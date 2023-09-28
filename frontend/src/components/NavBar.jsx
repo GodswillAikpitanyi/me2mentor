@@ -119,7 +119,7 @@ const NavBar = () => {
 						<div className="flex gap-4 items-center">
 
 
-							<div>
+							<div className="text-black">
 								<input
 									type="text"
 									name=""

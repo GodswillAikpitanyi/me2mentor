@@ -17,7 +17,6 @@ ma = Marshmallow()
 bcrypt = Bcrypt()
 login_manager = LoginManager()
 login_manager.login_view = 'mentees.login'
-login_manager.login_view = 'mentors.login'
 login_manager.login_message_category = 'info'
 
 mail = Mail()
@@ -42,7 +41,6 @@ def create_app(config_class=Config):
     from mentorapp.mentees.routes import mentees
     from mentorapp.mentors.routes import mentors
     from mentorapp.main.routes import main
-    #from mentorapp.errors.handlers import errors
 
     # Flask blueprint register
     app.register_blueprint(mentees)

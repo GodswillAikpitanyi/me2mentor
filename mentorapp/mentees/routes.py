@@ -61,12 +61,12 @@ def login():
     return jsonify({'message': 'Login Unsuccessful. Please check email and password'}), 401
 
 
-@mentees.route('/<int:id>', methods=['GET'])
-def singleMentee(id):
+@mentees.route('/<int:mentee_id>', methods=['GET'])
+def singleMentee(mentee_id):
     '''
         method to get a single mentee
     '''
-    single_mentee = Mentee.query.get(id)
+    single_mentee = Mentee.query.get(mentee_id)
     return mentee_schema.jsonify(single_mentee)
 
 

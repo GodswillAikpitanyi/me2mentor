@@ -61,12 +61,12 @@ def login():
     return jsonify({'message': 'Login Unsuccessful. Please check email and password'}), 401
 
 
-@mentors.route('/<int:id>', methods=['GET'])
-def singleMentor(id):
+@mentors.route('/<int:mentor_id>', methods=['GET'])
+def singleMentor(mentor_id):
     '''
         method to get a single mentee
     '''
-    single_mentor = Mentor.query.get(id)
+    single_mentor = Mentor.query.get(mentor_id)
     return mentor_schema.jsonify(single_mentor)
 
 

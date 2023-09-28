@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify, Blueprint
 from flask_login import login_required
-from mentorapp.schemas import MentorSchema
-from mentorapp.models import Mentor
+from mentorapp.schemas import MentorSchema, MenteeSchema
+from mentorapp.models import Mentor, Mentee
 from mentorapp.mentors.routes import mentors_schema
 
 
@@ -29,3 +29,29 @@ def get_mentors():
 @main.route("/about")
 def about():
     return jsonify({'message': 'This is the About page!'})
+
+
+@main.route("/register", methods=['GET', 'POST'])
+def register():
+    '''
+        a register function for the mentee route
+    '''
+    try:
+        # Parse JSON data from the request
+        data = request.get_json()
+        mentee_schema = MenteeSchema()
+
+        # Load (deserialize) the JSON data using MenteeSchema
+        mentee = mentee_schema.load(data)
+
+        # Checks if email already exists in the db.
+        existing_mentee = Mentee.query.filter_by(email=mentee.email).first()
+        if existing_mentee:
+            return "Email already exists", 409
+
+        db.session.add(mentee)
+        db.session.commit()
+        return mentee_schema.jsonify(mentee), 201
+
+    except Exception as e:
+        return str(e), 400

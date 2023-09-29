@@ -40,11 +40,11 @@ def create_app(config_class=Config):
     # circular import prevention #
     from mentorapp.mentees.routes import mentees
     from mentorapp.mentors.routes import mentors
-    from mentorapp.main.routes import main
+    from mentorapp.main.routes import api
 
     # Flask blueprint register
     app.register_blueprint(mentees)
     app.register_blueprint(mentors)
-    app.register_blueprint(main)
+    app.register_blueprint(api)
 
     return app

@@ -13,29 +13,7 @@ mentee_schema = MenteeSchema()
 mentees_schema = MenteeSchema(many=True)
 
 
-@mentees.route("/register", methods=['GET', 'POST'])
-def register():
-    '''
-        a register function for the mentee route
-    '''
-    try:
-        # Parse JSON data from the request
-        data = request.get_json()
 
-        # Load (deserialize) the JSON data using MenteeSchema
-        mentee = mentee_schema.load(data)
-
-        # Checks if email already exists in the db.
-        existing_mentee = Mentee.query.filter_by(email=mentee.email).first()
-        if existing_mentee:
-            return "Email already exists", 409
-
-        db.session.add(mentee)
-        db.session.commit()
-        return mentee_schema.jsonify(mentee), 201
-
-    except Exception as e:
-        return str(e), 400
 
 
 @mentees.route("/login", methods=['GET', 'POST'])
@@ -60,63 +38,6 @@ def login():
 
     return jsonify({'message': 'Login Unsuccessful. Please check email and password'}), 401
 
-
-@mentees.route('/<int:mentee_id>', methods=['GET'])
-def singleMentee(mentee_id):
-    '''
-        method to get a single mentee
-    '''
-    single_mentee = Mentee.query.get(mentee_id)
-    return mentee_schema.jsonify(single_mentee)
-
-
-@mentees.route("/logout", methods=['POST'])
-@login_required
-def logout():
-    '''
-        logout funtion for the mentor route
-    '''
-    try:
-        # Clear the user's session to log them out
-        session.clear()
-        return jsonify({"message": "Logout successful"}), 200
-
-    except Exception as e:
-        return str(e), 400
-
-
-
-@mentees.route("/api/account", methods=['GET', 'POST'])
-@login_required
-def update_account():
-    '''
-    function to update the mentee's account
-    '''
-    try:
-        # Find the Mentee by ID
-        mentee = db.session.get(Mentee, id)
-
-        if not mentee:
-            return "Mentee not found", 404
-
-        # Parse JSON data from the request
-        data = request.get_json()
-
-        # Update the Mentee object with the new data
-        mentee.first_name = data.get('first_name', mentee.first_name)
-        mentee.last_name = data.get('last_name', mentee.last_name)
-        mentee.email = data.get('email', mentee.email)
-        mentee.username = data.get('username', mentee.username)
-        mentee.age = data.get('age', mentee.age)
-
-        # Commit the changes to the database
-        db.session.commit()
-
-        # Serialize the updated Mentee and return it as JSON
-        return mentee_schema.jsonify(mentee), 200
-
-    except Exception as e:
-        return str(e), 400
 
 
 @mentees.route("/api/reset_password", methods=['GET', 'POST'])

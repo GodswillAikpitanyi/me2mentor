@@ -1,6 +1,6 @@
 from flask import request, jsonify, Blueprint, session
 from flask_login import login_required
-from mentorapp import db
+from mentorapp import db, bcrypt
 from mentorapp.schemas import mentee_schema, mentees_schema, mentor_schema, mentors_schema
 from mentorapp.models import Mentor, Mentee
 
@@ -121,6 +121,9 @@ def mentor_register():
     try:
         # Parse JSON data from the request
         data = request.get_json()
+        password = data.get('password')
+
+        hashed_password = bcrypt.generate_password_hash(password).decode('utf-8')
 
         # Load (deserialize) the JSON data using MentorSchema
         mentor = mentor_schema.load(data)

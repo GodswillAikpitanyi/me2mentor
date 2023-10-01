@@ -6,9 +6,7 @@ const defaultValues = {
 	username: '',
 	email: '',
 	age: '',
-	phoneNumber: '',
-	password_hash: '',
-	interests: '',
+	password: '',
 	profile_picture: '',
 }
 
@@ -73,7 +71,7 @@ const MenteeRegister = () => {
 			}
 
 			try {
-				const response = await fetch('http://127.0.0.1:5000/mentees/register', {
+				const response = await fetch('http://127.0.0.1:5000/mentee_register', {
 					method: 'POST',
 					body: formDataToSend,
 				});
@@ -104,12 +102,12 @@ const MenteeRegister = () => {
 						<label htmlFor="firstName" className="block text-lg font-semibold"> First Name </label>
 						<input
 							type="text"
-							name="firstName"
-							value={formData.firstName}
+							name="first_name"
+							value={formData.first_name}
 							onChange={handleInputChange}
 							placeholder="Enter your First Name" className="border outline-0 p-2 rounded-md w-full bg-[#f5f8fa] focus:border-2 focus:shadow-[0-0-4px-1px-rgba(0,208,228,0.3)]" />
-						{errors.firstName && (
-							<span className="text-red-600">{errors.firstName}</span>
+						{errors.first_name && (
+							<span className="text-red-600">{errors.first_name}</span>
 						)}
 					</div>
 
@@ -117,12 +115,12 @@ const MenteeRegister = () => {
 						<label htmlFor="lastName" className="block text-lg font-semibold"> Last Name </label>
 						<input
 							type="text"
-							name="lastName"
-							value={formData.lastName}
+							name="last_name"
+							value={formData.last_name}
 							onChange={handleInputChange}
 							placeholder="Enter your Last Name" className="border outline-0 p-2 rounded-md w-full  bg-[#f5f8fa] focus:border-2 focus:shadow-[0-0-4px-1px-rgba(0,208,228,0.3)]" />
-						{errors.lastName && (
-							<span className="text-red-600">{errors.lastName}</span>
+						{errors.last_name && (
+							<span className="text-red-600">{errors.last_name}</span>
 						)}
 					</div>
 					<div>
@@ -159,7 +157,7 @@ const MenteeRegister = () => {
 							<span className="text-red-600">{errors.age}</span>
 						)}
 					</div>
-					<div>
+					{/*<div>
 						<label htmlFor="phoneNumber" className="block text-lg font-semibold"> Phone Number </label>
 						<input type="number"
 							name="phoneNumber"
@@ -169,7 +167,7 @@ const MenteeRegister = () => {
 						{errors.phoneNumber && (
 							<span className="text-red-600">{errors.phoneNumber}</span>
 						)}
-					</div>
+					</div>*/}
 					<div>
 						<label htmlFor="password" className="block text-lg font-semibold"> Password </label>
 						<input type="password"
@@ -196,7 +194,7 @@ const MenteeRegister = () => {
 						)}
 
 					</div>
-					<div>
+					{/*<div>
 						<label htmlFor="qualification" className="block text-lg font-semibold"> Current Qualification </label>
 						<select name="qualification" id=""
 							value={formData.qualification}
@@ -207,7 +205,7 @@ const MenteeRegister = () => {
 							<option value="Option 1">Option 1</option>
 							<option value="Option 2">Option 2</option>
 						</select>
-					</div>
+					</div>*/}
 
 					<div>
 						<label htmlFor="picture" className="block text-lg font-semibold"> Profile Picture </label>

@@ -15,7 +15,7 @@ class MenteeSchema(ma.SQLAlchemyAutoSchema):
     last_name = fields.Str()
     age = fields.Int()
     email = fields.Email()
-    password = fields.Str()
+    password = fields.Str(required=True, load_only=True)
     username = fields.Str()
     profile_picture = fields.Str()
     interests = fields.Str()
@@ -43,7 +43,7 @@ class MentorSchema(ma.SQLAlchemyAutoSchema):
     age = fields.Int()
     username = fields.Str()
     email = fields.Email()
-    password = fields.Str()
+    password = fields.Str(required=True, load_only=True)
     profile_picture = fields.Str()
     expertise = fields.Str()
 
@@ -56,3 +56,12 @@ class MentorSchema(ma.SQLAlchemyAutoSchema):
 
 mentor_schema = MentorSchema()
 mentors_schema = MentorSchema(many=True)
+
+
+class MentorUserSchema(ma.SQLAlchemyAutoSchema):
+    '''
+        Mentee user schema
+    '''
+    id = fields.Int(dump_only=True)
+    username = fields.Str(required=True)
+    password = fields.Str(required=True, load_only=True)

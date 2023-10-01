@@ -38,7 +38,7 @@ def create_app(config_class=Config):
     mail.init_app(app)
 
     # circular import prevention #
-    from mentorapp.api.routes import api
+    from mentorapp.route.routes import api
 
     # Flask blueprint register
     app.register_blueprint(api)

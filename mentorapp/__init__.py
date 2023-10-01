@@ -1,6 +1,6 @@
 """ installed package imports """
 from flask import Flask
-from flask_cors import CORS
+from flask_cors import CORS, cross_origin
 from flask_sqlalchemy import SQLAlchemy
 from flask_marshmallow import Marshmallow
 from flask_bcrypt import Bcrypt
@@ -38,13 +38,9 @@ def create_app(config_class=Config):
     mail.init_app(app)
 
     # circular import prevention #
-    from mentorapp.mentees.routes import mentees
-    from mentorapp.mentors.routes import mentors
-    from mentorapp.main.routes import api
+    from mentorapp.api.routes import api
 
     # Flask blueprint register
-    app.register_blueprint(mentees)
-    app.register_blueprint(mentors)
     app.register_blueprint(api)
 
     return app
